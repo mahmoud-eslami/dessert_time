@@ -13,7 +13,8 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.white,
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.white,
-        color: Colors.orange,
+        height: 50,
+        color: Colors.lightGreenAccent,
         items: <Widget>[
           Icon(Icons.add, size: 30),
           Icon(Icons.list, size: 30),

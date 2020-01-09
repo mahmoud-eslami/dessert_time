@@ -23,12 +23,22 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: <Widget>[
-          SizedBox(height: 25,),
+          SizedBox(
+            height: 25,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Text('Discover fruits\naround the world',style: TextStyle(fontSize: 20),),
-              CircleAvatar(backgroundColor: Colors.black,),
+              Text(
+                'Discover fruits\naround the world',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              CircleAvatar(
+                backgroundColor: Colors.black,
+              ),
             ],
           )
         ],

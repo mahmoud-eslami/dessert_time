@@ -23,7 +23,12 @@ class _HomeState extends State<Home> {
 //        ],
 //      ),
     bottomNavigationBar: BottomNavigationBar(
-      items: ,
+      backgroundColor: Colors.blue,
+      items: <BottomNavigationBarItem>[
+//        Icon(Icons.account_circle),
+      BottomNavigationBarItem(title: Text(''),icon: Icon(Icons.account_circle,color: Colors.white,),),
+      BottomNavigationBarItem(title: Text(''),icon: Icon(Icons.account_circle,color: Colors.white,),),
+      ],
     ),
       body: Column(
         children: <Widget>[

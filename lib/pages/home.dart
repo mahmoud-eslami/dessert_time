@@ -11,16 +11,20 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.white,
-        height: 50,
-        color: Colors.lightGreenAccent,
-        items: <Widget>[
-          Icon(Icons.add, size: 30),
-          Icon(Icons.list, size: 30),
-          Icon(Icons.compare_arrows, size: 30),
-        ],
-      ),
+//      bottomNavigationBar:
+//      CurvedNavigationBar(
+//        backgroundColor: Colors.white,
+//        height: 50,
+//        color: Colors.lightGreenAccent,
+//        items: <Widget>[
+//          Icon(Icons.add, size: 30),
+//          Icon(Icons.list, size: 30),
+//          Icon(Icons.compare_arrows, size: 30),
+//        ],
+//      ),
+    bottomNavigationBar: BottomNavigationBar(
+      items: ,
+    ),
       body: Column(
         children: <Widget>[
           SizedBox(

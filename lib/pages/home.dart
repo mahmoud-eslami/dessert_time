@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text(
-                'Discover fruits\naround the world',
+                'Discover dessert\naround the world',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

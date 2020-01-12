@@ -1,4 +1,5 @@
 import 'package:dessert_time/pages/home.dart';
+import 'package:dessert_time/pages/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Baskervville',
       ),
-      home: Home(),
+      home: SplashScreen(),
     );
   }
 }

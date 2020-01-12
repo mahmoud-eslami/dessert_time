@@ -38,6 +38,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/images/
   fonts:
     - family: Baskervville
       fonts:

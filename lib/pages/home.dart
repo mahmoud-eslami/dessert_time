@@ -53,7 +53,11 @@ class CustomBottomNavigation extends StatelessWidget {
     return BottomNavigationBar(
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      backgroundColor: Colors.brown,
+      elevation: 110,
+      iconSize: 30,
+      fixedColor: Colors.blue,
+      backgroundColor: Colors.blue,
+      type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           title: Text(
@@ -62,7 +66,7 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.home,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         BottomNavigationBarItem(
@@ -72,7 +76,7 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.search,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         BottomNavigationBarItem(
@@ -82,7 +86,17 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.insert_drive_file,
-            color: Colors.white,
+            color: Colors.black,
+          ),
+        ),
+        BottomNavigationBarItem(
+          title: Text(
+            '',
+            style: TextStyle(color: Colors.white),
+          ),
+          icon: Icon(
+            Icons.account_box,
+            color: Colors.black,
           ),
         ),
       ],

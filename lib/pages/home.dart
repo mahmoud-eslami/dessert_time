@@ -22,12 +22,9 @@ class _HomeState extends State<Home> {
           bottomNavigationBar: CustomBottomNavigation(),
           body: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.all(20),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: 15,
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -44,8 +41,9 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
+                  CustomTabBar(),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   DessertItem(
                     image: 'assets/images/cookie.png',
@@ -54,7 +52,7 @@ class _HomeState extends State<Home> {
                     description: 'desasfqweasf',
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 10,
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
@@ -85,6 +83,68 @@ class _HomeState extends State<Home> {
   }
 }
 
+class CustomTabBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: BoxConstraints.expand(height: 50),
+      child: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(10),
+              child: SafeArea(
+                child: TabBar(
+                  indicatorColor: Colors.brown,
+                  isScrollable: true,
+                  tabs: <Widget>[
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'cake',
+                        style: TextStyle(
+                            color: Colors.brown, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'Ice Cream',
+                        style: TextStyle(
+                            color: Colors.brown, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'Drink',
+                        style: TextStyle(
+                            color: Colors.brown, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'Cup Cake',
+                        style: TextStyle(
+                            color: Colors.brown, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class ShopItem extends StatelessWidget {
   final String image;
   final String shopName;
@@ -98,8 +158,8 @@ class ShopItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 200,
+      height: 80,
+      width: 180,
       decoration: BoxDecoration(
         color: Colors.brown.withOpacity(.6),
         borderRadius: BorderRadius.circular(30),
@@ -110,7 +170,7 @@ class ShopItem extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               image,
-              height: 70,
+              height: 50,
             ),
             SizedBox(
               width: 20,
@@ -121,21 +181,21 @@ class ShopItem extends StatelessWidget {
                   shopName,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 15,
+                      fontSize: 13,
                       fontWeight: FontWeight.bold),
                 ),
                 Text(
                   description,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 12,
+                      fontSize: 10,
                       fontWeight: FontWeight.w300),
                 ),
                 Text(
                   openTime,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 12,
+                      fontSize: 8,
                       fontWeight: FontWeight.w900),
                 ),
               ],
@@ -160,8 +220,8 @@ class DessertItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 230,
-      width: 180,
+      height: 220,
+      width: 170,
       decoration: BoxDecoration(
         color: Colors.brown.withOpacity(.8),
         borderRadius: BorderRadius.circular(30),

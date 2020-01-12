@@ -1,7 +1,6 @@
 import 'package:dessert_time/bloc/dessert_bloc.dart';
 import 'package:dessert_time/bloc/dessert_event.dart';
 import 'package:dessert_time/pages/home.dart';
-import 'package:dessert_time/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.brown,
           fontFamily: 'Baskervville',
         ),
         home: Home(),

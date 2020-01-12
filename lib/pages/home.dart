@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -11,25 +12,35 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-//      bottomNavigationBar:
-//      CurvedNavigationBar(
-//        backgroundColor: Colors.white,
-//        height: 50,
-//        color: Colors.lightGreenAccent,
-//        items: <Widget>[
-//          Icon(Icons.add, size: 30),
-//          Icon(Icons.list, size: 30),
-//          Icon(Icons.compare_arrows, size: 30),
-//        ],
-//      ),
-    bottomNavigationBar: BottomNavigationBar(
-      backgroundColor: Colors.blue,
-      items: <BottomNavigationBarItem>[
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: Colors.blue,
+        items: <BottomNavigationBarItem>[
 //        Icon(Icons.account_circle),
-      BottomNavigationBarItem(title: Text(''),icon: Icon(Icons.account_circle,color: Colors.white,),),
-      BottomNavigationBarItem(title: Text(''),icon: Icon(Icons.account_circle,color: Colors.white,),),
-      ],
-    ),
+          BottomNavigationBarItem(
+            title: Text('',style: TextStyle(color: Colors.white),),
+            icon: Icon(
+              Icons.home,
+              color: Colors.white,
+            ),
+          ),
+          BottomNavigationBarItem(
+            title: Text('',style: TextStyle(color: Colors.white),),
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+          ),
+          BottomNavigationBarItem(
+            title: Text('',style: TextStyle(color: Colors.white),),
+            icon: Icon(
+              Icons.insert_drive_file,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
       body: Column(
         children: <Widget>[
           SizedBox(

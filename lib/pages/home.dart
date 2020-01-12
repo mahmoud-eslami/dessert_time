@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
                     image: 'assets/images/cafe.png',
                     shopName: 'bazzar',
                     description: 'niceeee',
-                    openTime: '9 - 13',
+                    openTime: '9 - 13 AM',
                   )
                 ],
               ),
@@ -117,9 +117,27 @@ class ShopItem extends StatelessWidget {
             ),
             Column(
               children: <Widget>[
-                Text(shopName),
-                Text(description),
-                Text(openTime),
+                Text(
+                  shopName,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  description,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w300),
+                ),
+                Text(
+                  openTime,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w900),
+                ),
               ],
             )
           ],
@@ -164,7 +182,7 @@ class DessertItem extends StatelessWidget {
             Text(
               country,
               style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 13,
                   fontWeight: FontWeight.w500),
             ),

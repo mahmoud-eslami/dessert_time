@@ -1,5 +1,6 @@
 import 'package:dessert_time/bloc/dessert_bloc.dart';
 import 'package:dessert_time/bloc/dessert_event.dart';
+import 'package:dessert_time/pages/home.dart';
 import 'package:dessert_time/pages/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           fontFamily: 'Baskervville',
         ),
-        home: SplashScreen(),
+        home: Home(),
       ),
     );
   }

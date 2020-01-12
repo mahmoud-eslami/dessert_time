@@ -1,4 +1,3 @@
-import 'package:dessert_time/pages/home.dart';
 import 'package:dessert_time/pages/splash.dart';
 import 'package:flutter/material.dart';
 

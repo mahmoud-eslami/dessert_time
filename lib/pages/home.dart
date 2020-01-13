@@ -172,13 +172,13 @@ class ShopItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
         height: 80,
         width: 180,
         decoration: BoxDecoration(
-          color: Colors.brown.withOpacity(.6),
-          borderRadius: BorderRadius.circular(30),
+          color: Colors.brown.withOpacity(.2),
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -237,13 +237,13 @@ class DessertItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
         height: 220,
-        width: 170,
+        width: 150,
         decoration: BoxDecoration(
           color: Colors.brown.withOpacity(.8),
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -291,6 +291,7 @@ class CustomBottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: 1,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       elevation: 110,

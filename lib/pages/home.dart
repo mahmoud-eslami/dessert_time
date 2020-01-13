@@ -28,28 +28,32 @@ class _HomeState extends State<Home> {
           ),
           body: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.all(20),
               child: Column(
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Discover dessert\naround the world',
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Discover dessert\naround the world',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Image.asset(
-                        'assets/images/cookie.png',
-                        height: 50,
-                      ),
-                    ],
+                        Image.asset(
+                          'assets/images/cookie.png',
+                          height: 50,
+                        ),
+                      ],
+                    ),
                   ),
-                  CustomTabBar(),
+                  Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: CustomTabBar()),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   SizedBox(
                     height: 220,
@@ -67,13 +71,16 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 20,
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Nearby CoffeShop',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Nearby CoffeShop',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -300,8 +307,13 @@ class CustomBottomNavigation extends StatelessWidget {
       currentIndex: 1,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      elevation: 110,
+      elevation: 1,
       backgroundColor: Colors.brown,
+      unselectedItemColor: Colors.blueAccent,
+      selectedItemColor: Colors.blueAccent,
+      onTap: (item){},
+      selectedIconTheme: IconThemeData(color: Colors.amberAccent),
+      unselectedIconTheme: IconThemeData(color: Colors.white),
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -311,7 +323,6 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.home,
-            color: Colors.white,
           ),
         ),
         BottomNavigationBarItem(
@@ -321,7 +332,6 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.search,
-            color: Colors.white,
           ),
         ),
         BottomNavigationBarItem(
@@ -331,7 +341,6 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.folder_open,
-            color: Colors.white,
           ),
         ),
         BottomNavigationBarItem(
@@ -341,7 +350,6 @@ class CustomBottomNavigation extends StatelessWidget {
           ),
           icon: Icon(
             Icons.account_circle,
-            color: Colors.white,
           ),
         ),
       ],

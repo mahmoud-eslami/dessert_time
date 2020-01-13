@@ -27,7 +27,7 @@
       "country": "iraq",
       "desc": "Mozzarella",
       "foodType": "cake"
-    },
+    }
   ],
   "shop": [
     {
@@ -53,6 +53,6 @@
       "name": "express",
       "address": "5th road",
       "opentime": "3-5 PM"
-    },
-  ],
+    }
+  ]
 }

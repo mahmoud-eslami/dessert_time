@@ -19,7 +19,13 @@ class _HomeState extends State<Home> {
         } else if (state is InitialDessertState) {}
         return Scaffold(
           backgroundColor: Colors.white,
-          bottomNavigationBar: CustomBottomNavigation(),
+          bottomNavigationBar: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(25),
+              topRight: Radius.circular(25),
+            ),
+            child: CustomBottomNavigation(),
+          ),
           body: SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.all(20),
@@ -59,7 +65,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
@@ -75,7 +81,7 @@ class _HomeState extends State<Home> {
                     height: 20,
                   ),
                   SizedBox(
-                    height: 80,
+                    height: 100,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,

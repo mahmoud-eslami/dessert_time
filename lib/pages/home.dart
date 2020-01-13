@@ -45,11 +45,18 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 10,
                   ),
-                  DessertItem(
-                    image: 'assets/images/cookie.png',
-                    country: 'iran',
-                    name: 'cake',
-                    description: 'desasfqweasf',
+                  SizedBox(
+                    height: 220,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 5,
+                      itemBuilder: (context, index) => DessertItem(
+                        image: 'assets/images/cookie.png',
+                        country: 'iran',
+                        name: 'cake$index',
+                        description: 'desasfqweasf',
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: 10,
@@ -67,12 +74,19 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     height: 20,
                   ),
-                  ShopItem(
-                    image: 'assets/images/cafe.png',
-                    shopName: 'bazzar',
-                    description: 'niceeee',
-                    openTime: '9 - 13 AM',
-                  )
+                  SizedBox(
+                    height: 80,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 5,
+                      itemBuilder: (context, index) => ShopItem(
+                        image: 'assets/images/cafe.png',
+                        shopName: 'bazzar',
+                        description: 'niceeee',
+                        openTime: '9 - 13 AM',
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -157,50 +171,53 @@ class ShopItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      width: 180,
-      decoration: BoxDecoration(
-        color: Colors.brown.withOpacity(.6),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Row(
-          children: <Widget>[
-            Image.asset(
-              image,
-              height: 50,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  shopName,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  description,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  openTime,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 8,
-                      fontWeight: FontWeight.w900),
-                ),
-              ],
-            )
-          ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Container(
+        height: 80,
+        width: 180,
+        decoration: BoxDecoration(
+          color: Colors.brown.withOpacity(.6),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Row(
+            children: <Widget>[
+              Image.asset(
+                image,
+                height: 50,
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              Column(
+                children: <Widget>[
+                  Text(
+                    shopName,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    description,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w300),
+                  ),
+                  Text(
+                    openTime,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 8,
+                        fontWeight: FontWeight.w900),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -219,48 +236,51 @@ class DessertItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 220,
-      width: 170,
-      decoration: BoxDecoration(
-        color: Colors.brown.withOpacity(.8),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Image.asset(
-              image,
-              height: 90,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              country,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              name,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w900),
-            ),
-            Text(
-              description,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 10,
-                  fontWeight: FontWeight.w300),
-            ),
-          ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Container(
+        height: 220,
+        width: 170,
+        decoration: BoxDecoration(
+          color: Colors.brown.withOpacity(.8),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Image.asset(
+                image,
+                height: 90,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                country,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500),
+              ),
+              Text(
+                name,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w900),
+              ),
+              Text(
+                description,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w300),
+              ),
+            ],
+          ),
         ),
       ),
     );

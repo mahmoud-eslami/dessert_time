@@ -94,8 +94,10 @@ class DiscoveryPage extends StatelessWidget {
   }
 }
 
-
 class CustomTabBar extends StatelessWidget {
+  final TextStyle style =
+      TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -111,40 +113,24 @@ class CustomTabBar extends StatelessWidget {
               preferredSize: Size.fromHeight(10),
               child: SafeArea(
                 child: TabBar(
-                  indicatorColor: Colors.brown,
+                  indicator: CircleTabIndicator(color: Colors.brown, radius: 4),
                   isScrollable: true,
                   tabs: <Widget>[
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'cake',
-                        style: TextStyle(
-                            color: Colors.brown, fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('cake', style: style),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Ice Cream',
-                        style: TextStyle(
-                            color: Colors.brown, fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('Ice Cream', style: style),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Drink',
-                        style: TextStyle(
-                            color: Colors.brown, fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('Drink', style: style),
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Cup Cake',
-                        style: TextStyle(
-                            color: Colors.brown, fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('Cup Cake', style: style),
                     ),
                   ],
                 ),
@@ -154,6 +140,34 @@ class CustomTabBar extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class CircleTabIndicator extends Decoration {
+  final BoxPainter _boxPainter;
+
+  CircleTabIndicator({@required Color color, @required double radius})
+      : _boxPainter = _CirclePainter(color, radius);
+
+  @override
+  BoxPainter createBoxPainter([onChanged]) => _boxPainter;
+}
+
+class _CirclePainter extends BoxPainter {
+  final Paint _paint;
+  final double radius;
+
+  _CirclePainter(Color color, this.radius)
+      : _paint = Paint()
+          ..color = color
+          ..isAntiAlias = true;
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    final Offset circleOffset = offset +
+        Offset(configuration.size.width ,
+            configuration.size.height - radius );
+    canvas.drawCircle(circleOffset, radius, _paint);
   }
 }
 
@@ -293,10 +307,10 @@ class CustomBottomNavigation extends StatelessWidget {
       showSelectedLabels: false,
       showUnselectedLabels: false,
       elevation: 1,
-      backgroundColor: Colors.brown,
+      backgroundColor: Colors.grey,
       unselectedItemColor: Colors.blueAccent,
       selectedItemColor: Colors.blueAccent,
-      onTap: (item){},
+      onTap: (item) {},
       selectedIconTheme: IconThemeData(color: Colors.amberAccent),
       unselectedIconTheme: IconThemeData(color: Colors.white),
       type: BottomNavigationBarType.fixed,

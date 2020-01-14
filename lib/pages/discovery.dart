@@ -165,8 +165,8 @@ class _CirclePainter extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final Offset circleOffset = offset +
-        Offset(configuration.size.width ,
-            configuration.size.height - radius );
+        Offset(configuration.size.width - 10,
+            configuration.size.height - radius - 5);
     canvas.drawCircle(circleOffset, radius, _paint);
   }
 }
@@ -306,13 +306,11 @@ class CustomBottomNavigation extends StatelessWidget {
       currentIndex: 1,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      elevation: 1,
-      backgroundColor: Colors.grey,
-      unselectedItemColor: Colors.blueAccent,
-      selectedItemColor: Colors.blueAccent,
+      elevation: 30,
+      backgroundColor: Colors.transparent,
       onTap: (item) {},
-      selectedIconTheme: IconThemeData(color: Colors.amberAccent),
-      unselectedIconTheme: IconThemeData(color: Colors.white),
+      selectedIconTheme: IconThemeData(color: Colors.brown),
+      unselectedIconTheme: IconThemeData(color: Colors.grey),
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(

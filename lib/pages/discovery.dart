@@ -97,7 +97,7 @@ class DiscoveryPage extends StatelessWidget {
 
 class CustomTabBar extends StatelessWidget {
   final TextStyle style =
-      TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
+      TextStyle(color: AppColor.tabBarItemColor, fontWeight: FontWeight.bold);
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +114,7 @@ class CustomTabBar extends StatelessWidget {
               preferredSize: Size.fromHeight(10),
               child: SafeArea(
                 child: TabBar(
-                  indicator: CircleTabIndicator(color: Colors.brown, radius: 4),
+                  indicator: CircleTabIndicator(color: AppColor.tabBarIndicator, radius: 4),
                   isScrollable: true,
                   tabs: <Widget>[
                     Container(
@@ -190,7 +190,7 @@ class ShopItem extends StatelessWidget {
         height: 80,
         width: 180,
         decoration: BoxDecoration(
-          color: Colors.brown.withOpacity(.2),
+          color: AppColor.shopItemBkColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
@@ -209,21 +209,21 @@ class ShopItem extends StatelessWidget {
                   Text(
                     shopName,
                     style: TextStyle(
-                        color: Colors.black,
+                        color: AppColor.shopItemTextColor,
                         fontSize: 13,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
                     description,
                     style: TextStyle(
-                        color: Colors.black,
+                        color: AppColor.shopItemTextColor,
                         fontSize: 10,
                         fontWeight: FontWeight.w300),
                   ),
                   Text(
                     openTime,
                     style: TextStyle(
-                        color: Colors.black,
+                        color: AppColor.shopItemTextColor,
                         fontSize: 8,
                         fontWeight: FontWeight.w900),
                   ),
@@ -255,7 +255,7 @@ class DessertItem extends StatelessWidget {
         height: 220,
         width: 150,
         decoration: BoxDecoration(
-          color: Colors.brown.withOpacity(.8),
+          color: AppColor.dessertItemBkColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Padding(
@@ -274,21 +274,21 @@ class DessertItem extends StatelessWidget {
               Text(
                 country,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: AppColor.onlyBlack,
                     fontSize: 13,
                     fontWeight: FontWeight.w500),
               ),
               Text(
                 name,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppColor.dessertTitleColor,
                     fontSize: 25,
                     fontWeight: FontWeight.w900),
               ),
               Text(
                 description,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppColor.dessertDesColor,
                     fontSize: 10,
                     fontWeight: FontWeight.w300),
               ),
@@ -310,8 +310,8 @@ class CustomBottomNavigation extends StatelessWidget {
       elevation: 30,
       backgroundColor: Colors.transparent,
       onTap: (item) {},
-      selectedIconTheme: IconThemeData(color: Colors.brown),
-      unselectedIconTheme: IconThemeData(color: Colors.grey),
+      selectedIconTheme: IconThemeData(color: AppColor.bottomNavSelectedIcon),
+      unselectedIconTheme: IconThemeData(color: AppColor.bottomNavUnSelectedIcon),
       type: BottomNavigationBarType.fixed,
       items: <BottomNavigationBarItem>[
         BottomNavigationBarItem(

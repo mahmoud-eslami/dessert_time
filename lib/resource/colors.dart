@@ -8,7 +8,7 @@ class AppColor {
   static Color tabBarIndicator = Colors.brown;
   static Color shopItemBkColor = Colors.brown.withOpacity(.2);
   static Color shopItemTextColor = Colors.black;
-  static Color dessertItemBkColor = Colors.brown.withOpacity(.2);
+  static Color dessertItemBkColor = Colors.brown.withOpacity(.8);
   static Color dessertTitleColor = Colors.white;
   static Color dessertDesColor = Colors.white;
   static Color bottomNavSelectedIcon = Colors.brown;

@@ -4,91 +4,81 @@ import 'package:dessert_time/resource/colors.dart';
 class DiscoveryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.discoveryBkColor,
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(25),
-          topRight: Radius.circular(25),
-        ),
-        child: CustomBottomNavigation(),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      'Discover dessert\naround the world',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Image.asset(
-                      'assets/images/cookie.png',
-                      height: 50,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: CustomTabBar()),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 220,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => DessertItem(
-                    image: 'assets/images/cookie.png',
-                    country: 'iran',
-                    name: 'cake$index',
-                    description: 'desasfqweasf',
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Nearby CoffeShop',
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Discover dessert\naround the world',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  Image.asset(
+                    'assets/images/cookie.png',
+                    height: 50,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: CustomTabBar()),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 220,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (context, index) => DessertItem(
+                  image: 'assets/images/cookie.png',
+                  country: 'iran',
+                  name: 'cake$index',
+                  description: 'desasfqweasf',
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 100,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => ShopItem(
-                    image: 'assets/images/cafe.png',
-                    shopName: 'bazzar',
-                    description: 'niceeee',
-                    openTime: '9 - 13 AM',
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Nearby CoffeShop',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (context, index) => ShopItem(
+                  image: 'assets/images/cafe.png',
+                  shopName: 'bazzar',
+                  description: 'niceeee',
+                  openTime: '9 - 13 AM',
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -114,7 +104,8 @@ class CustomTabBar extends StatelessWidget {
               preferredSize: Size.fromHeight(10),
               child: SafeArea(
                 child: TabBar(
-                  indicator: CircleTabIndicator(color: AppColor.tabBarIndicator, radius: 4),
+                  indicator: CircleTabIndicator(
+                      color: AppColor.tabBarIndicator, radius: 4),
                   isScrollable: true,
                   tabs: <Widget>[
                     Container(
@@ -296,57 +287,6 @@ class DessertItem extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class CustomBottomNavigation extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: 0,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      elevation: 30,
-      backgroundColor: Colors.transparent,
-      onTap: (item) {},
-      selectedIconTheme: IconThemeData(color: AppColor.bottomNavSelectedIcon),
-      unselectedIconTheme: IconThemeData(color: AppColor.bottomNavUnSelectedIcon),
-      type: BottomNavigationBarType.fixed,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          title: Text(
-            '',
-          ),
-          icon: Icon(
-            Icons.home,
-          ),
-        ),
-        BottomNavigationBarItem(
-          title: Text(
-            '',
-          ),
-          icon: Icon(
-            Icons.search,
-          ),
-        ),
-        BottomNavigationBarItem(
-          title: Text(
-            '',
-          ),
-          icon: Icon(
-            Icons.folder_open,
-          ),
-        ),
-        BottomNavigationBarItem(
-          title: Text(
-            '',
-          ),
-          icon: Icon(
-            Icons.account_circle,
-          ),
-        ),
-      ],
     );
   }
 }

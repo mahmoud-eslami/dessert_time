@@ -1,5 +1,6 @@
 import 'package:dessert_time/bloc/bloc.dart';
 import 'package:dessert_time/pages/discovery.dart';
+import 'package:dessert_time/pages/main_page.dart';
 import 'package:dessert_time/pages/splash.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _HomeState extends State<Home> {
         if (state is SplashState) {
           return SplashScreen();
         } else if (state is InitialDessertState) {}
-        return DiscoveryPage();
+        return MainPage();
       },
     );
   }

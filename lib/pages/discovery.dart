@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:dessert_time/resource/colors.dart';
 
 class DiscoveryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.discoveryBkColor,
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25),
@@ -304,7 +304,7 @@ class CustomBottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: 1,
+      currentIndex: 0,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       elevation: 30,

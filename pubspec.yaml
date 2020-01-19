@@ -46,6 +46,10 @@ flutter:
         - asset: fonts/Baskervville-Regular.ttf
         - asset: fonts/Baskervville-Italic.ttf
           style: italic
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-MediumItalic.ttf
+        - asset: fonts/Roboto-Medium.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

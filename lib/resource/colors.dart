@@ -6,7 +6,7 @@ class AppColor {
   static Color discoveryBkColor = Colors.white;
   static Color tabBarItemColor = Colors.black;
   static Color tabBarIndicator = Colors.brown;
-  static Color shopItemBkColor = Colors.brown.withOpacity(.2);
+  static Color shopItemBorderColor = Colors.brown;
   static Color shopItemTextColor = Colors.black;
   static Color dessertItemBkColor = Colors.brown.withOpacity(.8);
   static Color dessertTitleColor = Colors.white;

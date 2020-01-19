@@ -1,4 +1,7 @@
+import 'package:dessert_time/pages/category_page.dart';
 import 'package:dessert_time/pages/discovery.dart';
+import 'package:dessert_time/pages/profile_page.dart';
+import 'package:dessert_time/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
 
@@ -13,9 +16,9 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     DiscoveryPage(),
-    DiscoveryPage(),
-    DiscoveryPage(),
-    DiscoveryPage(),
+    SearchPage(),
+    CategoryPage(),
+    ProfilePage(),
   ];
 
   void onTabTapped(int index) {

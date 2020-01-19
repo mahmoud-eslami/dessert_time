@@ -181,8 +181,9 @@ class ShopItem extends StatelessWidget {
         height: 80,
         width: 180,
         decoration: BoxDecoration(
-          color: AppColor.shopItemBkColor,
+          color: AppColor.onlyWhite,
           borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: AppColor.shopItemBorderColor)
         ),
         child: Padding(
           padding: EdgeInsets.all(20),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class DiscoveryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -316,7 +317,6 @@ class CustomBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           title: Text(
             '',
-            style: TextStyle(color: Colors.white),
           ),
           icon: Icon(
             Icons.home,
@@ -325,7 +325,6 @@ class CustomBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           title: Text(
             '',
-            style: TextStyle(color: Colors.white),
           ),
           icon: Icon(
             Icons.search,
@@ -334,7 +333,6 @@ class CustomBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           title: Text(
             '',
-            style: TextStyle(color: Colors.white),
           ),
           icon: Icon(
             Icons.folder_open,
@@ -343,7 +341,6 @@ class CustomBottomNavigation extends StatelessWidget {
         BottomNavigationBarItem(
           title: Text(
             '',
-            style: TextStyle(color: Colors.white),
           ),
           icon: Icon(
             Icons.account_circle,

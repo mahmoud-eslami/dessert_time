@@ -28,7 +28,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.discoveryBkColor,
-      body: -_children[_currentIndex],
+      body: _children[_currentIndex],
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25),

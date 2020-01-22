@@ -41,7 +41,6 @@ class _MainPageState extends State<MainPage> {
           currentIndex: _currentIndex,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          elevation: 30,
           backgroundColor: Colors.transparent,
           onTap: onTabTapped,
           selectedIconTheme: IconThemeData(color: AppColor.bottomNavSelectedIcon),

@@ -176,7 +176,7 @@ class ShopItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         height: 80,
         width: 180,
@@ -197,6 +197,7 @@ class ShopItem extends StatelessWidget {
                 width: 20,
               ),
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     shopName,
@@ -242,7 +243,7 @@ class DessertItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         height: 220,
         width: 150,

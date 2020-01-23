@@ -94,7 +94,7 @@ class CustomTabBar extends StatelessWidget {
     return Container(
       constraints: BoxConstraints.expand(height: 50),
       child: DefaultTabController(
-        length: 4,
+        length: 3,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -119,10 +119,6 @@ class CustomTabBar extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text('Drink', style: style),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text('Cup Cake', style: style),
                     ),
                   ],
                 ),

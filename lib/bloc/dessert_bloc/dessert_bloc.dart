@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import './bloc.dart';
+import 'dessert_event.dart';
+import 'dessert_state.dart';
 
 class DessertBloc extends Bloc<DessertEvent, DessertState> {
   @override

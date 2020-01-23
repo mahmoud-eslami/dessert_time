@@ -4,81 +4,94 @@ import 'package:dessert_time/resource/colors.dart';
 class DiscoveryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Discover dessert\naround the world',
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Discover dessert\naround the world',
+                      style: TextStyle(
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Material(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      clipBehavior: Clip.hardEdge,
+                      elevation: 13,
+                      child: Image.asset(
+                        'assets/images/profile.jpg',
+                        fit: BoxFit.cover,
+                        height: 35,
+                        width: 35,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: CustomTabBar()),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: 220,
+                child: ListView.builder(
+                  padding: EdgeInsets.only(left: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (context, index) => DessertItem(
+                    image: 'assets/images/birthcake.png',
+                    country: 'IRAN',
+                    name: 'Cake $index',
+                    description: '28 available store nearby',
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Nearby CoffeShop',
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Image.asset(
-                    'assets/images/cookie.png',
-                    height: 50,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: CustomTabBar()),
-            SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: 220,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) => DessertItem(
-                  image: 'assets/images/cookie.png',
-                  country: 'iran',
-                  name: 'cake$index',
-                  description: 'desasfqweasf',
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Nearby CoffeShop',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: 70,
+                child: ListView.builder(
+                  padding: EdgeInsets.only(left: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (context, index) => ShopItem(
+                    image: 'assets/images/cafe.png',
+                    shopName: 'bazzar',
+                    description: 'it,s a fake shop fo test',
+                    openTime: '9 - 13 AM',
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) => ShopItem(
-                  image: 'assets/images/cafe.png',
-                  shopName: 'bazzar',
-                  description: 'niceeee',
-                  openTime: '9 - 13 AM',
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -94,7 +107,7 @@ class CustomTabBar extends StatelessWidget {
     return Container(
       constraints: BoxConstraints.expand(height: 50),
       child: DefaultTabController(
-        length: 3,
+        length: 4,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -103,24 +116,28 @@ class CustomTabBar extends StatelessWidget {
             bottom: PreferredSize(
               preferredSize: Size.fromHeight(10),
               child: SafeArea(
-                child: TabBar(
-                  indicator: CircleTabIndicator(
-                      color: AppColor.tabBarIndicator, radius: 4),
-                  isScrollable: true,
-                  tabs: <Widget>[
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text('cake', style: style),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text('Ice Cream', style: style),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text('Drink', style: style),
-                    ),
-                  ],
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: TabBar(
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicator: CircleTabIndicator(
+                        color: AppColor.tabBarIndicator, radius: 4),
+                    isScrollable: true,
+                    tabs: <Widget>[
+                      Container(
+                        child: Text('Cake', style: style),
+                      ),
+                      Container(
+                        child: Text('Coco', style: style),
+                      ),
+                      Container(
+                        child: Text('Ice Cream', style: style),
+                      ),
+                      Container(
+                        child: Text('Drink', style: style),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -153,8 +170,7 @@ class _CirclePainter extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     final Offset circleOffset = offset +
-        Offset(configuration.size.width - 10,
-            configuration.size.height - radius - 5);
+        Offset(configuration.size.width + 10, configuration.size.height / 2);
     canvas.drawCircle(circleOffset, radius, _paint);
   }
 }
@@ -172,54 +188,57 @@ class ShopItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
-        height: 80,
         width: 180,
         decoration: BoxDecoration(
-          color: AppColor.onlyWhite,
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: AppColor.shopItemBorderColor)
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: Row(
-            children: <Widget>[
-              Image.asset(
-                image,
-                height: 50,
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    shopName,
-                    style: TextStyle(
-                        color: AppColor.shopItemTextColor,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    description,
-                    style: TextStyle(
-                        color: AppColor.shopItemTextColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  Text(
-                    openTime,
-                    style: TextStyle(
-                        color: AppColor.shopItemTextColor,
-                        fontSize: 8,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ],
-              )
-            ],
-          ),
+            color: AppColor.onlyWhite,
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: AppColor.shopItemBorderColor)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset(
+              image,
+              height: 40,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  shopName,
+                  style: TextStyle(
+                      color: AppColor.shopItemTextColor,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  description,
+                  style: TextStyle(
+                      color: AppColor.shopItemTextColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  openTime,
+                  style: TextStyle(
+                      color: AppColor.shopItemTimeColor,
+                      fontSize: 8,
+                      fontWeight: FontWeight.w900),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
@@ -239,7 +258,7 @@ class DessertItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
         height: 220,
         width: 150,
@@ -258,21 +277,27 @@ class DessertItem extends StatelessWidget {
                 height: 90,
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               Text(
                 country,
                 style: TextStyle(
-                    color: AppColor.onlyBlack,
-                    fontSize: 13,
+                    color: AppColor.dessertCountryColor,
+                    fontSize: 10,
                     fontWeight: FontWeight.w500),
+              ),
+              SizedBox(
+                height: 3,
               ),
               Text(
                 name,
                 style: TextStyle(
                     color: AppColor.dessertTitleColor,
-                    fontSize: 25,
+                    fontSize: 20,
                     fontWeight: FontWeight.w900),
+              ),
+              SizedBox(
+                height: 3,
               ),
               Text(
                 description,

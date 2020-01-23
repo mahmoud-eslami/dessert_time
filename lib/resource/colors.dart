@@ -5,14 +5,16 @@ class AppColor {
   static Color onlyBlack = Colors.black;
   static Color discoveryBkColor = Colors.white;
   static Color tabBarItemColor = Colors.black;
-  static Color tabBarIndicator = Colors.brown;
-  static Color shopItemBorderColor = Colors.brown;
+  static Color tabBarIndicator = Colors.red[300];
+  static Color shopItemBorderColor = Colors.black38;
   static Color shopItemTextColor = Colors.black;
-  static Color dessertItemBkColor = Colors.brown.withOpacity(.8);
-  static Color dessertTitleColor = Colors.white;
-  static Color dessertDesColor = Colors.white;
-  static Color bottomNavSelectedIcon = Colors.brown;
-  static Color bottomNavBkColor = Colors.brown.withOpacity(.5);
-  static Color bottomNavUnSelectedIcon = Colors.white;
+  static Color shopItemTimeColor = Colors.red[300];
+  static Color dessertItemBkColor = Colors.pink[50];
+  static Color dessertCountryColor = Colors.red[300];
+  static Color dessertTitleColor = Colors.black;
+  static Color dessertDesColor = Colors.black54;
+  static Color bottomNavSelectedIcon = Colors.red[200];
+  static Color bottomNavBkColor = Colors.white;
+  static Color bottomNavUnSelectedIcon = Colors.black26;
 
 }

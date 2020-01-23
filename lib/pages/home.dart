@@ -1,5 +1,5 @@
-import 'package:dessert_time/bloc/bloc.dart';
-import 'package:dessert_time/pages/discovery.dart';
+import 'package:dessert_time/bloc/dessert_bloc/dessert_bloc.dart';
+import 'package:dessert_time/bloc/dessert_bloc/dessert_state.dart';
 import 'package:dessert_time/pages/main_page.dart';
 import 'package:dessert_time/pages/splash.dart';
 import 'package:flutter/cupertino.dart';

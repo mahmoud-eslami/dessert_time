@@ -1,8 +1,8 @@
-import 'package:dessert_time/bloc/dessert_bloc.dart';
-import 'package:dessert_time/bloc/dessert_event.dart';
 import 'package:dessert_time/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'bloc/dessert_bloc/dessert_bloc.dart';
+import 'bloc/dessert_bloc/dessert_event.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.brown,
-          fontFamily: 'Roboto',
+          primarySwatch: Colors.pink,
+          fontFamily: 'RobotoLight',
         ),
         home: Home(),
       ),

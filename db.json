@@ -1,32 +1,32 @@
 {
-  "foods": [
+  "dessert": [
     {
       "image": "http://s6.picofile.com/file/8384720000/cookie.png",
-      "name": "cake",
-      "country": "iran",
+      "name": "Cake",
+      "country": "IRAN",
       "desc": "Mozzarella Cheeze",
-      "foodType": "cake"
+      "foodType": "Cake"
     },
         {
       "image": "http://s6.picofile.com/file/8384720068/birthcake.png",
-      "name": "cup cake",
-      "country": "uk",
+      "name": "Cup Cake",
+      "country": "UK",
       "desc": "best",
-      "foodType": "cake"
+      "foodType": "Cake"
     },
         {
       "image": "http://s6.picofile.com/file/8384720000/cookie.png",
-      "name": "drink cake",
-      "country": "usa",
+      "name": "CocoPop",
+      "country": "USA",
       "desc": "Mozzarella aw",
-      "foodType": "cake"
+      "foodType": "Coco"
     },
         {
       "image": "http://s6.picofile.com/file/8384720068/birthcake.png",
-      "name": "cream cake",
-      "country": "iraq",
+      "name": "Cream Coco",
+      "country": "IRAQ",
       "desc": "Mozzarella",
-      "foodType": "cake"
+      "foodType": "Coco"
     }
   ],
   "shop": [

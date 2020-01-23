@@ -14,12 +14,19 @@ class DessertBloc extends Bloc<DessertEvent, DessertState> {
     DessertEvent event,
   ) async* {
     if (event is AppStart) {
-      yield InitialDessertState();
-      await Future.delayed(Duration(seconds: 3));
-      yield LoadingDessertListState();
-      Response response = await DessertService.getInstance().get('/db');
-      if(response.statusCode == 200 && response != null){
+      try {
+        yield InitialDessertState();
+        await Future.delayed(Duration(seconds: 3));
+        yield LoadingDessertListState();
+        Response response = await DessertService.getInstance().get('/db');
+
+        var data = response.data;
+        print(data);
+        if (response.statusCode == 200 && response != null) {
           yield LoadedDessertListState();
+        }
+      } catch (e, s) {
+        print('$e,$s');
       }
     }
   }

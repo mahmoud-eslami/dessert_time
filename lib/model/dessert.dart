@@ -1,51 +1,51 @@
 // To parse this JSON data, do
 //
-//     final priceHistory = priceHistoryFromJson(jsonString);
+//     final dessert = dessertFromJson(jsonString);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-class PriceHistory {
-  final List<Food> foods;
+class Dessert {
+  final List<DessertElement> dessert;
   final List<Shop> shop;
 
-  PriceHistory({
-    @required this.foods,
+  Dessert({
+    @required this.dessert,
     @required this.shop,
   });
 
-  PriceHistory copyWith({
-    List<Food> foods,
+  Dessert copyWith({
+    List<DessertElement> dessert,
     List<Shop> shop,
   }) =>
-      PriceHistory(
-        foods: foods ?? this.foods,
+      Dessert(
+        dessert: dessert ?? this.dessert,
         shop: shop ?? this.shop,
       );
 
-  factory PriceHistory.fromRawJson(String str) => PriceHistory.fromJson(json.decode(str));
+  factory Dessert.fromRawJson(String str) => Dessert.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory PriceHistory.fromJson(Map<String, dynamic> json) => PriceHistory(
-    foods: List<Food>.from(json["foods"].map((x) => Food.fromJson(x))),
+  factory Dessert.fromJson(Map<String, dynamic> json) => Dessert(
+    dessert: List<DessertElement>.from(json["dessert"].map((x) => DessertElement.fromJson(x))),
     shop: List<Shop>.from(json["shop"].map((x) => Shop.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "foods": List<dynamic>.from(foods.map((x) => x.toJson())),
+    "dessert": List<dynamic>.from(dessert.map((x) => x.toJson())),
     "shop": List<dynamic>.from(shop.map((x) => x.toJson())),
   };
 }
 
-class Food {
+class DessertElement {
   final String image;
   final String name;
   final String country;
   final String desc;
   final String foodType;
 
-  Food({
+  DessertElement({
     @required this.image,
     @required this.name,
     @required this.country,
@@ -53,14 +53,14 @@ class Food {
     @required this.foodType,
   });
 
-  Food copyWith({
+  DessertElement copyWith({
     String image,
     String name,
     String country,
     String desc,
     String foodType,
   }) =>
-      Food(
+      DessertElement(
         image: image ?? this.image,
         name: name ?? this.name,
         country: country ?? this.country,
@@ -68,11 +68,11 @@ class Food {
         foodType: foodType ?? this.foodType,
       );
 
-  factory Food.fromRawJson(String str) => Food.fromJson(json.decode(str));
+  factory DessertElement.fromRawJson(String str) => DessertElement.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Food.fromJson(Map<String, dynamic> json) => Food(
+  factory DessertElement.fromJson(Map<String, dynamic> json) => DessertElement(
     image: json["image"],
     name: json["name"],
     country: json["country"],

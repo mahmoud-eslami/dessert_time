@@ -14,6 +14,16 @@ class DessertService {
         receiveTimeout: 2000,
       );
       _dio = Dio(options);
+      _dio.interceptors.add(
+        LogInterceptor(
+          error: true,
+          request: true,
+          requestHeader: true,
+          responseBody: true,
+          responseHeader: true,
+          requestBody: true,
+        ),
+      );
     }
     return _dio;
   }

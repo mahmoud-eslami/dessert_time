@@ -61,7 +61,7 @@ class DiscoveryPage extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.only(left: 25),
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(

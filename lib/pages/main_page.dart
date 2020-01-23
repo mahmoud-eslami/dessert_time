@@ -36,11 +36,11 @@ class _MainPageState extends State<MainPage> {
           boxShadow: [
             BoxShadow(
               offset: Offset(0, 0),
-              color: Colors.black26,
-              blurRadius: 10,
+              color: Colors.black12,
+              blurRadius: 15,
             ),
           ],
-          borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(35)),
         ),
         child: BottomNavigationBar(
           currentIndex: _currentIndex,

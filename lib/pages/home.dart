@@ -16,12 +16,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return BlocBuilder<DessertBloc, DessertState>(
       builder: (context, state) {
-        if (state is SplashState) {
+        if (state is InitialDessertState) {
           return SplashScreen();
-        } else if (state is InitialDessertState) {}
+        } else if (state is LoadingDessertListState) {}
         return MainPage();
       },
     );
   }
 }
-

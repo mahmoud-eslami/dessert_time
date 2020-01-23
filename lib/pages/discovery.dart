@@ -83,7 +83,7 @@ class DiscoveryPage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: (context, index) => ShopItem(
-                    image: 'assets/images/cafe.png',
+                    image: 'assets/images/shoppop.jpg',
                     shopName: 'bazzar',
                     description: 'it,s a fake shop fo test',
                     openTime: '9 - 13 AM',
@@ -193,14 +193,20 @@ class ShopItem extends StatelessWidget {
         width: 180,
         decoration: BoxDecoration(
             color: AppColor.onlyWhite,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(17),
             border: Border.all(color: AppColor.shopItemBorderColor)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              image,
-              height: 40,
+            Material(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              clipBehavior: Clip.hardEdge,
+              child: Image.asset(
+                image,
+                height: 40,
+              ),
             ),
             SizedBox(
               width: 20,
@@ -264,7 +270,7 @@ class DessertItem extends StatelessWidget {
         width: 150,
         decoration: BoxDecoration(
           color: AppColor.dessertItemBkColor,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(17),
         ),
         child: Padding(
           padding: EdgeInsets.all(20),

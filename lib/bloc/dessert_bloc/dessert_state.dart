@@ -7,8 +7,10 @@ abstract class DessertState extends Equatable {
   List<Object> get props => [];
 }
 
-class SplashState extends DessertState {}
-
 class InitialDessertState extends DessertState {}
 
 class LoadingDessertListState extends DessertState {}
+
+class LoadedDessertListState extends DessertState {}
+
+class ErrorLoadingListState extends DessertState {}

@@ -6,7 +6,7 @@ class AppColor {
   static Color discoveryBkColor = Colors.white;
   static Color tabBarItemColor = Colors.black;
   static Color tabBarIndicator = Colors.red[300];
-  static Color shopItemBorderColor = Colors.black38;
+  static Color shopItemBorderColor = Colors.grey[200];
   static Color shopItemTextColor = Colors.black;
   static Color shopItemTimeColor = Colors.red[300];
   static Color dessertItemBkColor = Colors.pink[50];
@@ -16,5 +16,4 @@ class AppColor {
   static Color bottomNavSelectedIcon = Colors.red[200];
   static Color bottomNavBkColor = Colors.white;
   static Color bottomNavUnSelectedIcon = Colors.black26;
-
 }

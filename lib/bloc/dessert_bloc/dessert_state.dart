@@ -7,10 +7,30 @@ abstract class DessertState extends Equatable {
   List<Object> get props => [];
 }
 
-class InitialDessertState extends DessertState {}
+class InitialDessertState extends DessertState {
+  @override
+  String toString() {
+    return super.toString();
+  }
+}
 
-class LoadingDessertListState extends DessertState {}
+class LoadingDessertListState extends DessertState {
+  @override
+  String toString() {
+    return super.toString();
+  }
+}
 
-class LoadedDessertListState extends DessertState {}
+class LoadedDessertListState extends DessertState {
+  @override
+  String toString() {
+    return super.toString();
+  }
+}
 
-class ErrorLoadingListState extends DessertState {}
+class ErrorLoadingListState extends DessertState {
+  @override
+  String toString() {
+    return super.toString();
+  }
+}

@@ -12,6 +12,7 @@ class AppColor {
   static Color dessertTitleColor = Colors.white;
   static Color dessertDesColor = Colors.white;
   static Color bottomNavSelectedIcon = Colors.brown;
-  static Color bottomNavUnSelectedIcon = Colors.grey;
+  static Color bottomNavBkColor = Colors.brown.withOpacity(.5);
+  static Color bottomNavUnSelectedIcon = Colors.white;
 
 }

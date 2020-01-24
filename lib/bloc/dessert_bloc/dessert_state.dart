@@ -1,3 +1,4 @@
+import 'package:dessert_time/model/dessert.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class DessertState extends Equatable {
@@ -22,6 +23,15 @@ class LoadingDessertListState extends DessertState {
 }
 
 class LoadedDessertListState extends DessertState {
+
+  final List<Dessert> dessertList;
+
+  LoadedDessertListState({this.dessertList});
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [dessertList];
+
   @override
   String toString() {
     return super.toString();

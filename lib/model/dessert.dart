@@ -5,47 +5,15 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
+
 class Dessert {
-  final List<DessertElement> dessert;
-  final List<Shop> shop;
-
-  Dessert({
-    @required this.dessert,
-    @required this.shop,
-  });
-
-  Dessert copyWith({
-    List<DessertElement> dessert,
-    List<Shop> shop,
-  }) =>
-      Dessert(
-        dessert: dessert ?? this.dessert,
-        shop: shop ?? this.shop,
-      );
-
-  factory Dessert.fromRawJson(String str) => Dessert.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory Dessert.fromJson(Map<String, dynamic> json) => Dessert(
-    dessert: List<DessertElement>.from(json["dessert"].map((x) => DessertElement.fromJson(x))),
-    shop: List<Shop>.from(json["shop"].map((x) => Shop.fromJson(x))),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "dessert": List<dynamic>.from(dessert.map((x) => x.toJson())),
-    "shop": List<dynamic>.from(shop.map((x) => x.toJson())),
-  };
-}
-
-class DessertElement {
   final String image;
   final String name;
   final String country;
   final String desc;
   final String foodType;
 
-  DessertElement({
+  Dessert({
     @required this.image,
     @required this.name,
     @required this.country,
@@ -53,14 +21,14 @@ class DessertElement {
     @required this.foodType,
   });
 
-  DessertElement copyWith({
+  Dessert copyWith({
     String image,
     String name,
     String country,
     String desc,
     String foodType,
   }) =>
-      DessertElement(
+      Dessert(
         image: image ?? this.image,
         name: name ?? this.name,
         country: country ?? this.country,
@@ -68,11 +36,11 @@ class DessertElement {
         foodType: foodType ?? this.foodType,
       );
 
-  factory DessertElement.fromRawJson(String str) => DessertElement.fromJson(json.decode(str));
+  factory Dessert.fromRawJson(String str) => Dessert.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory DessertElement.fromJson(Map<String, dynamic> json) => DessertElement(
+  factory Dessert.fromJson(Map<String, dynamic> json) => Dessert(
     image: json["image"],
     name: json["name"],
     country: json["country"],

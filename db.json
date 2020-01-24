@@ -28,31 +28,5 @@
       "desc": "Mozzarella",
       "foodType": "Coco"
     }
-  ],
-  "shop": [
-    {
-      "image": "http://s7.picofile.com/file/8384719934/shop.png",
-      "name": "royal",
-      "address": "2th road",
-      "opentime": "12-14 PM"
-    },
-        {
-      "image": "http://s7.picofile.com/file/8384720042/cafe.png",
-      "name": "fiure",
-      "address": "4th road",
-      "opentime": "9-16 PM"
-    },
-        {
-      "image": "http://s7.picofile.com/file/8384719934/shop.png",
-      "name": "alef",
-      "address": "3th road",
-      "opentime": "9-12 PM"
-    },
-        {
-      "image": "http://s7.picofile.com/file/8384720042/cafe.png",
-      "name": "express",
-      "address": "5th road",
-      "opentime": "3-5 PM"
-    }
   ]
 }

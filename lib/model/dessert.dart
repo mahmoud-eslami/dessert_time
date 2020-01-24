@@ -1,10 +1,36 @@
 // To parse this JSON data, do
 //
-//     final dessert = dessertFromJson(jsonString);
+//     final dessertModel = dessertModelFromJson(jsonString);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
+class DessertModel {
+  final List<Dessert> dessert;
+
+  DessertModel({
+    @required this.dessert,
+  });
+
+  DessertModel copyWith({
+    List<Dessert> dessert,
+  }) =>
+      DessertModel(
+        dessert: dessert ?? this.dessert,
+      );
+
+  factory DessertModel.fromRawJson(String str) => DessertModel.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory DessertModel.fromJson(Map<String, dynamic> json) => DessertModel(
+    dessert: List<Dessert>.from(json["dessert"].map((x) => Dessert.fromJson(x))),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "dessert": List<dynamic>.from(dessert.map((x) => x.toJson())),
+  };
+}
 
 class Dessert {
   final String image;
@@ -54,50 +80,5 @@ class Dessert {
     "country": country,
     "desc": desc,
     "foodType": foodType,
-  };
-}
-
-class Shop {
-  final String image;
-  final String name;
-  final String address;
-  final String opentime;
-
-  Shop({
-    @required this.image,
-    @required this.name,
-    @required this.address,
-    @required this.opentime,
-  });
-
-  Shop copyWith({
-    String image,
-    String name,
-    String address,
-    String opentime,
-  }) =>
-      Shop(
-        image: image ?? this.image,
-        name: name ?? this.name,
-        address: address ?? this.address,
-        opentime: opentime ?? this.opentime,
-      );
-
-  factory Shop.fromRawJson(String str) => Shop.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory Shop.fromJson(Map<String, dynamic> json) => Shop(
-    image: json["image"],
-    name: json["name"],
-    address: json["address"],
-    opentime: json["opentime"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "image": image,
-    "name": name,
-    "address": address,
-    "opentime": opentime,
   };
 }

@@ -24,7 +24,7 @@ class LoadingDessertListState extends DessertState {
 
 class LoadedDessertListState extends DessertState {
 
-  final List<Dessert> dessertList;
+  final List<DessertModel> dessertList;
 
   LoadedDessertListState({this.dessertList});
 

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class AppColor {
   static Color onlyWhite = Colors.white;
   static Color onlyBlack = Colors.black;
+  static Color detailsBkColor = Colors.pink[50];
   static Color discoveryBkColor = Colors.white;
   static Color tabBarItemColor = Colors.black;
   static Color tabBarIndicator = Colors.red[300];
+  static Color detailsIconColor = Colors.red[300];
+  static Color detailsDraggableSheetColor = Colors.white;
   static Color shopItemBorderColor = Colors.grey[200];
   static Color shopItemTextColor = Colors.black;
   static Color shopItemTimeColor = Colors.red[300];

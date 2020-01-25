@@ -44,7 +44,7 @@ class DiscoveryPage extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                height: 220,
+                height: 240,
                 child: ListView.builder(
                   padding: EdgeInsets.only(left: 20),
                   scrollDirection: Axis.horizontal,
@@ -266,7 +266,7 @@ class DessertItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
-        height: 220,
+        height: 240,
         width: 150,
         decoration: BoxDecoration(
           color: AppColor.dessertItemBkColor,

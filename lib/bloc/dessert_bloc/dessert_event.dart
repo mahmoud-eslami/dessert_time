@@ -8,3 +8,5 @@ abstract class DessertEvent extends Equatable {
 }
 
 class AppStart extends DessertEvent {}
+
+class DessertItemOnTap extends DessertEvent {}

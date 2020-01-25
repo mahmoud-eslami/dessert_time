@@ -87,14 +87,11 @@ class DiscoveryPage extends StatelessWidget {
                   padding: EdgeInsets.only(left: 20),
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
-                  itemBuilder: (context, index) => InkWell(
-                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));},
-                    child: ShopItem(
-                      image: 'assets/images/shoppop.jpg',
-                      shopName: 'bazzar',
-                      description: 'it,s a fake shop fo test',
-                      openTime: '9 - 13 AM',
-                    ),
+                  itemBuilder: (context, index) => ShopItem(
+                    image: 'assets/images/shoppop.jpg',
+                    shopName: 'bazzar',
+                    description: 'it,s a fake shop fo test',
+                    openTime: '9 - 13 AM',
                   ),
                 ),
               ),
@@ -282,45 +279,48 @@ class DessertItem extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Image.asset(
-                image,
-                height: 90,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                country,
-                style: TextStyle(
-                    color: AppColor.dessertCountryColor,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              Text(
-                name,
-                style: TextStyle(
-                    color: AppColor.dessertTitleColor,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w900),
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              Text(
-                description,
-                style: TextStyle(
-                    color: AppColor.dessertDesColor,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w300),
-              ),
-            ],
+          child: InkWell(
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));},
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Image.asset(
+                  image,
+                  height: 90,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  country,
+                  style: TextStyle(
+                      color: AppColor.dessertCountryColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                Text(
+                  name,
+                  style: TextStyle(
+                      color: AppColor.dessertTitleColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900),
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                Text(
+                  description,
+                  style: TextStyle(
+                      color: AppColor.dessertDesColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -6,7 +6,59 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.detailsBkColor,
-      body: SafeArea(
+      body:
+//      CustomScrollView(
+//        slivers: <Widget>[
+//          SliverAppBar(
+//            pinned: true,
+//            backgroundColor: AppColor.detailsBkColor,
+//            expandedHeight: 300,
+//            flexibleSpace: Column(
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              children: <Widget>[
+//                Text('IRAN'),
+//                Text('NAME'),
+//                Text('asdasdasdasdasdasd'),
+//                Row(
+//                  mainAxisAlignment: MainAxisAlignment.center,
+//                  children: <Widget>[
+//                    IconButton(icon: Icon(Icons.favorite), onPressed: (){},color: Colors.red,),
+//                    IconButton(icon: Text('Find Nearest store'), onPressed: (){}),
+//                  ],
+//                )
+//              ],
+//            ),
+//            title: Center(
+//                child: Text(
+//              'Product Detail',
+//              style: TextStyle(
+//                  color: Colors.black,
+//                  fontSize: 12,
+//                  fontWeight: FontWeight.w900),
+//            )),
+//            leading: IconButton(
+//              icon: Icon(
+//                Icons.keyboard_backspace,
+//                color: AppColor.detailsIconColor,
+//              ),
+//              onPressed: () {
+//                Navigator.pop(context);
+//              },
+//            ),
+//            actions: <Widget>[
+//              IconButton(
+//                icon: Icon(Icons.share),
+//                onPressed: () {},
+//                color: AppColor.detailsIconColor,
+//              )
+//            ],
+//          ),
+//          SliverList(
+//            delegate:
+//          ),
+//        ],
+//      ),
+      SafeArea(
         child: Column(
           children: <Widget>[
             Row(
@@ -31,27 +83,27 @@ class DetailsPage extends StatelessWidget {
                     onPressed: () {}),
               ],
             ),
-            Expanded(
-              child: DraggableScrollableSheet(
-                minChildSize: 0.5,
-                maxChildSize: 0.8,
-                builder: (context, scrollController) {
-                  return Container(
-                    decoration: BoxDecoration(
-                        color: AppColor.detailsDraggableSheetColor,
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(35))),
-                    child: ListView.builder(
-                      controller: scrollController,
-                      itemCount: 25,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(title: Text('Item $index'));
-                      },
-                    ),
-                  );
-                },
-              ),
-            )
+                Expanded(
+                  child: DraggableScrollableSheet(
+                    minChildSize: 0.5,
+                    maxChildSize: 0.8,
+                    builder: (context, scrollController) {
+                      return Container(
+                        decoration: BoxDecoration(
+                            color: AppColor.detailsDraggableSheetColor,
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(35))),
+                        child: ListView.builder(
+                          controller: scrollController,
+                          itemCount: 25,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ListTile(title: Text('Item $index'));
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                )
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:dessert_time/pages/detailes.dart';
 import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
 
@@ -82,11 +83,14 @@ class DiscoveryPage extends StatelessWidget {
                   padding: EdgeInsets.only(left: 20),
                   scrollDirection: Axis.horizontal,
                   itemCount: 5,
-                  itemBuilder: (context, index) => ShopItem(
-                    image: 'assets/images/shoppop.jpg',
-                    shopName: 'bazzar',
-                    description: 'it,s a fake shop fo test',
-                    openTime: '9 - 13 AM',
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));},
+                    child: ShopItem(
+                      image: 'assets/images/shoppop.jpg',
+                      shopName: 'bazzar',
+                      description: 'it,s a fake shop fo test',
+                      openTime: '9 - 13 AM',
+                    ),
                   ),
                 ),
               ),

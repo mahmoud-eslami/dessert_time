@@ -1,4 +1,4 @@
-import 'package:dessert_time/pages/detailes.dart';
+import 'package:dessert_time/pages/dessertDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
 
@@ -85,6 +85,8 @@ class DiscoveryPage extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) => InkWell(
                     onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));},
+                    hoverColor: Colors.green,
+                    highlightColor: Colors.red,
                     child: ShopItem(
                       image: 'assets/images/shoppop.jpg',
                       shopName: 'bazzar',

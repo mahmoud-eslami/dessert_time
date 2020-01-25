@@ -24,7 +24,7 @@ class DessertBloc extends Bloc<DessertEvent, DessertState> {
         var data = response.data;
         if (response.statusCode == 200 && response != null) {
           var dessertList =
-              List<Dessert>.from(data.map((item) => DessertModel.fromJson(item)))
+              List<Dessert>.from(data['dessert'].map((item) => Dessert.fromJson(item)))
                   .toList();
           print(dessertList);
           yield LoadedDessertListState(dessertList: dessertList);

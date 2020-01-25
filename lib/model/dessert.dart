@@ -5,33 +5,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-class DessertModel {
-  final List<Dessert> dessert;
-
-  DessertModel({
-    @required this.dessert,
-  });
-
-  DessertModel copyWith({
-    List<Dessert> dessert,
-  }) =>
-      DessertModel(
-        dessert: dessert ?? this.dessert,
-      );
-
-  factory DessertModel.fromRawJson(String str) => DessertModel.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  factory DessertModel.fromJson(Map<String, dynamic> json) => DessertModel(
-    dessert: List<Dessert>.from(json["dessert"].map((x) => Dessert.fromJson(x))),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "dessert": List<dynamic>.from(dessert.map((x) => x.toJson())),
-  };
-}
-
 class Dessert {
   final String image;
   final String name;

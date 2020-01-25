@@ -15,11 +15,15 @@ class DiscoveryPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      'Discover dessert\naround the world',
-                      style: TextStyle(
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        'Discover dessert\naround the world',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 27,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     Material(
@@ -85,8 +89,6 @@ class DiscoveryPage extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) => InkWell(
                     onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));},
-                    hoverColor: Colors.green,
-                    highlightColor: Colors.red,
                     child: ShopItem(
                       image: 'assets/images/shoppop.jpg',
                       shopName: 'bazzar',

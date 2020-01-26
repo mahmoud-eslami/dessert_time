@@ -71,6 +71,8 @@ class DiscoveryPage extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Nearby CoffeShop',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -130,16 +132,16 @@ class CustomTabBar extends StatelessWidget {
                     isScrollable: true,
                     tabs: <Widget>[
                       Container(
-                        child: Text('Cake', style: style),
+                        child: Text('Cake',maxLines: 1,overflow: TextOverflow.ellipsis, style: style),
                       ),
                       Container(
-                        child: Text('Coco', style: style),
+                        child: Text('Coco',overflow: TextOverflow.ellipsis, style: style),
                       ),
                       Container(
-                        child: Text('Ice Cream', style: style),
+                        child: Text('Ice Cream',overflow: TextOverflow.ellipsis, style: style),
                       ),
                       Container(
-                        child: Text('Drink', style: style),
+                        child: Text('Drink',overflow: TextOverflow.ellipsis, style: style),
                       ),
                     ],
                   ),
@@ -222,6 +224,7 @@ class ShopItem extends StatelessWidget {
               children: <Widget>[
                 Text(
                   shopName,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.shopItemTextColor,
                       fontSize: 13,
@@ -232,6 +235,7 @@ class ShopItem extends StatelessWidget {
                 ),
                 Text(
                   description,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.shopItemTextColor,
                       fontSize: 10,
@@ -242,6 +246,7 @@ class ShopItem extends StatelessWidget {
                 ),
                 Text(
                   openTime,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.shopItemTimeColor,
                       fontSize: 8,
@@ -294,6 +299,7 @@ class DessertItem extends StatelessWidget {
                 ),
                 Text(
                   country,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.dessertCountryColor,
                       fontSize: 10,
@@ -304,6 +310,7 @@ class DessertItem extends StatelessWidget {
                 ),
                 Text(
                   name,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.dessertTitleColor,
                       fontSize: 20,
@@ -314,6 +321,7 @@ class DessertItem extends StatelessWidget {
                 ),
                 Text(
                   description,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.dessertDesColor,
                       fontSize: 10,

@@ -38,43 +38,8 @@ class DetailsPage extends StatelessWidget {
                 color: AppColor.detailsIconColor,
               )
             ],
-            flexibleSpace: FlexibleSpaceBar(
-              background: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('IRAQ'),
-                    Text('Asadmnalsmfn'),
-                    Text('lkdsaskkjgqwknjglakfnslaklaknasfn'),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                              child: IconButton(
-                                  icon: Icon(Icons.star), onPressed: () {})),
-                          flex: 1,
-                        ),
-                        SizedBox(
-                          width: 25,
-                        ),
-                        Expanded(
-                          child: RaisedButton(
-                            onPressed: () {},
-                            child: Text(
-                              'FIND NEAREST STORE',
-                              style: TextStyle(fontSize: 10),
-                            ),
-                          ),
-                          flex: 3,
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
+            flexibleSpace: _flexibleSpaceBar('IRAN', 'BirthCake',
+                'very good and nice and very good hello ho'),
           ),
           SliverList(
               delegate: SliverChildListDelegate(
@@ -174,10 +139,13 @@ class DetailsPage extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                  'Per cent Daily Values are based on a 2,000'
-                                      ' calories diet.Per cent Daily Values are based '
-                                      'on a 2,000 calories dietPer cent Daily Values are '
-                                      'based on a 2,000 calories diet',style: TextStyle(fontSize: 10,color: Colors.grey),),
+                                'Per cent Daily Values are based on a 2,000'
+                                ' calories diet.Per cent Daily Values are based '
+                                'on a 2,000 calories dietPer cent Daily Values are '
+                                'based on a 2,000 calories diet',
+                                style:
+                                    TextStyle(fontSize: 10, color: Colors.grey),
+                              ),
                             ],
                           ),
                         ),
@@ -196,4 +164,45 @@ class DetailsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _flexibleSpaceBar(
+    String countyName, String itemName, String description) {
+  return FlexibleSpaceBar(
+    background: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('$countyName'),
+          Text('$itemName'),
+          Text('$description'),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                    child:
+                        IconButton(icon: Icon(Icons.star), onPressed: () {})),
+                flex: 1,
+              ),
+              SizedBox(
+                width: 25,
+              ),
+              Expanded(
+                child: RaisedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'FIND NEAREST STORE',
+                    style: TextStyle(fontSize: 10),
+                  ),
+                ),
+                flex: 3,
+              )
+            ],
+          )
+        ],
+      ),
+    ),
+  );
 }

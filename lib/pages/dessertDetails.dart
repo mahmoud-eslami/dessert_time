@@ -1,5 +1,6 @@
 import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class DetailsPage extends StatelessWidget {
   @override
@@ -9,29 +10,9 @@ class DetailsPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-//            pinned: true,
+            pinned: true,
             backgroundColor: AppColor.detailsBkColor,
             expandedHeight: 300,
-            flexibleSpace: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('IRAN'),
-                Text('NAME'),
-                Text('asdasdasdasdasdasd'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.favorite),
-                      onPressed: () {},
-                      color: Colors.red,
-                    ),
-                    IconButton(
-                        icon: Text('Find Nearest store'), onPressed: () {}),
-                  ],
-                )
-              ],
-            ),
             title: Center(
                 child: Text(
               'Product Detail',
@@ -56,13 +37,63 @@ class DetailsPage extends StatelessWidget {
                 color: AppColor.detailsIconColor,
               )
             ],
+            stretchTriggerOffset: 200,
+            flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.parallax,
+              background: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('IRAQ'),
+                    Text('Asadmnalsmfn'),
+                    Text('lkdsaskkjgqwknjglakfnslaklaknasfn'),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: RaisedButton(
+                              onPressed: () {},
+                              child: Icon(Icons.lightbulb_outline)),
+                          flex: 1,
+                        ),
+                        SizedBox(width: 25,),
+                        Expanded(
+                          child: RaisedButton(
+                            onPressed: () {},
+                            child: Text(
+                              'FIND NEAREST STORE',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ),
+                          flex: 3,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           ),
           SliverList(
               delegate: SliverChildListDelegate(
             <Widget>[
-              Container(color: Colors.red, height: 150.0),
+              Stack(
+                children: <Widget>[
+                  Container(
+                    color: Colors.white,
+                    height: 150,
+                  ),
+                  Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                        'assets/images/birthcake.png',
+                        scale: 2,
+                      )),
+                ],
+              ),
               Container(color: Colors.purple, height: 150.0),
-              Container(color: Colors.green, height: 150.0),
+              Container(color: Colors.green, height: 45.0),
               Container(color: Colors.red, height: 150.0),
               Container(color: Colors.purple, height: 150.0),
               Container(color: Colors.green, height: 150.0),
@@ -79,56 +110,6 @@ class DetailsPage extends StatelessWidget {
           ))
         ],
       ),
-//      SafeArea(
-//        child: Column(
-//          children: <Widget>[
-//            Row(
-//              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//              children: <Widget>[
-//                IconButton(
-//                    icon: Icon(
-//                      Icons.keyboard_backspace,
-//                      color: AppColor.detailsIconColor,
-//                    ),
-//                    onPressed: () {
-//                      Navigator.pop(context);
-//                    }),
-//                Text(
-//                  'Product Detail',
-//                  maxLines: 1,
-//                  overflow: TextOverflow.ellipsis,
-//                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w900),
-//                ),
-//                IconButton(
-//                    icon: Icon(Icons.share, color: AppColor.detailsIconColor),
-//                    onPressed: () {}),
-//              ],
-//            ),
-//                Expanded(
-//                  child: DraggableScrollableSheet(
-//                    minChildSize: 0.5,
-//                    maxChildSize: 0.8,
-//                    builder: (context, scrollController) {
-//                      return
-//                        Container(
-//                        decoration: BoxDecoration(
-//                            color: AppColor.detailsDraggableSheetColor,
-//                            borderRadius: BorderRadius.vertical(
-//                                top: Radius.circular(35))),
-//                        child: ListView.builder(
-//                          controller: scrollController,
-//                          itemCount: 25,
-//                          itemBuilder: (BuildContext context, int index) {
-//                            return ListTile(title: Text('Item $index'));
-//                          },
-//                        ),
-//                      );
-//                    },
-//                  ),
-//                )
-//          ],
-//        ),
-//      ),
     );
   }
 }

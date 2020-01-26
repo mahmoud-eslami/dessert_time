@@ -1,4 +1,5 @@
 import 'package:dessert_time/resource/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -12,7 +13,7 @@ class DetailsPage extends StatelessWidget {
           SliverAppBar(
             pinned: true,
             backgroundColor: AppColor.detailsBkColor,
-            expandedHeight: 300,
+            expandedHeight: 200,
             title: Center(
                 child: Text(
               'Product Detail',
@@ -37,7 +38,6 @@ class DetailsPage extends StatelessWidget {
                 color: AppColor.detailsIconColor,
               )
             ],
-            stretchTriggerOffset: 200,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
               background: Padding(
@@ -52,12 +52,14 @@ class DetailsPage extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Expanded(
-                          child: RaisedButton(
-                              onPressed: () {},
-                              child: Icon(Icons.lightbulb_outline)),
+                          child: Container(
+                              child: IconButton(
+                                  icon: Icon(Icons.star), onPressed: () {})),
                           flex: 1,
                         ),
-                        SizedBox(width: 25,),
+                        SizedBox(
+                          width: 25,
+                        ),
                         Expanded(
                           child: RaisedButton(
                             onPressed: () {},
@@ -78,34 +80,34 @@ class DetailsPage extends StatelessWidget {
           SliverList(
               delegate: SliverChildListDelegate(
             <Widget>[
-              Stack(
-                children: <Widget>[
-                  Container(
-                    color: Colors.white,
-                    height: 150,
-                  ),
-                  Align(
-                      alignment: Alignment.topCenter,
-                      child: Image.asset(
-                        'assets/images/birthcake.png',
-                        scale: 2,
-                      )),
-                ],
+              SizedBox(
+                height: 170,
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(25)),
+                        color: Colors.white,
+                      ),
+                      height: 100,
+                    ),
+                    Align(
+                        alignment: Alignment.topCenter,
+                        child: Image.asset(
+                          'assets/images/birthcake.png',
+                          height: 140,
+                        )),
+                  ],
+                ),
               ),
-              Container(color: Colors.purple, height: 150.0),
-              Container(color: Colors.green, height: 45.0),
+              Container(color: Colors.white, height: 150.0),
+              Container(color: Colors.white, height: 45.0),
+              Container(color: Colors.white, height: 150.0),
+              Container(color: Colors.white, height: 150.0),
+              Container(color: Colors.white, height: 150.0),
               Container(color: Colors.red, height: 150.0),
-              Container(color: Colors.purple, height: 150.0),
-              Container(color: Colors.green, height: 150.0),
-              Container(color: Colors.red, height: 150.0),
-              Container(color: Colors.purple, height: 150.0),
-              Container(color: Colors.green, height: 150.0),
-              Container(color: Colors.red, height: 150.0),
-              Container(color: Colors.purple, height: 150.0),
-              Container(color: Colors.green, height: 150.0),
-              Container(color: Colors.red, height: 150.0),
-              Container(color: Colors.purple, height: 150.0),
-              Container(color: Colors.green, height: 150.0),
             ],
           ))
         ],
@@ -113,4 +115,3 @@ class DetailsPage extends StatelessWidget {
     );
   }
 }
-

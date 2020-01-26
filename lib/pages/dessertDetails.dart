@@ -89,18 +89,16 @@ class DetailsPage extends StatelessWidget {
                           children: <Widget>[
                             Row(
                               children: <Widget>[
-                                IconButton(
-                                    icon: Icon(
-                                      Icons.calendar_view_day,
-                                      size: 18,
-                                      color: AppColor.detailsIconColor,
-                                    ),
-                                    onPressed: () {}),
+                                Icon(
+                                  Icons.format_list_bulleted,
+                                  color: AppColor.detailsIconColor,
+                                  size: 15,
+                                ),
                                 Text(
                                   'Nutrition Facts',
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 14),
+                                      fontSize: 12),
                                 ),
                                 IconButton(
                                     icon: Icon(
@@ -123,40 +121,51 @@ class DetailsPage extends StatelessWidget {
                             border: Border.all(
                                 color: AppColor.detailPageBorderColor),
                             borderRadius: BorderRadius.circular(17)),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 15),
-                          child: Column(
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  IconButton(
-                                      icon: Icon(
-                                        Icons.error_outline,
-                                        color: AppColor.detailsIconColor,
-                                        size: 18,
-                                      ),
-                                      onPressed: () {}),
-                                  Text(
-                                    'Notice',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                'Per cent Daily Values are based on a 2,000'
-                                ' calories diet.Per cent Daily Values are based '
-                                'on a 2,000 calories dietPer cent Daily Values are '
-                                'based on a 2,000 calories diet',
-                                style:
-                                    TextStyle(fontSize: 10, color: Colors.grey),
-                              ),
-                            ],
-                          ),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Icon(
+                                  Icons.error_outline,
+                                  color: AppColor.detailsIconColor,
+                                  size: 15,
+                                ),
+                                Text(
+                                  'Notice',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              'Per cent Daily Values are based on a 2,000'
+                              ' calories diet.Per cent Daily Values are based '
+                              'on a 2,000 calories dietPer cent Daily Values are '
+                              'based on a 2,000 calories diet',
+                              style:
+                                  TextStyle(fontSize: 9, color: Colors.grey),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            )
+                          ],
                         ),
                       ),
-                      Container(),
+                      Container(
+                        decoration: BoxDecoration(
+                          border:
+                              Border.all(color: AppColor.detailPageBorderColor),
+                          borderRadius: BorderRadius.circular(17),
+                        ),
+                        child: Column(children: <Widget>[
+                          Row(children: <Widget>[
+                            Icon(Icons.photo_size_select_actual,color: AppColor.detailsIconColor,size: 15,),
+                            Text('Photo',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12),),
+                            Text('(10)',style: TextStyle(fontWeight: FontWeight.w100,fontSize: 10),),
+                          ],),
+                        ],),
+                      ),
                     ],
                   ),
                 ),

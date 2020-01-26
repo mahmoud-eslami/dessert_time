@@ -12,8 +12,9 @@ class DetailsPage extends StatelessWidget {
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
+            elevation: 0,
             backgroundColor: AppColor.detailsBkColor,
-            expandedHeight: 200,
+            expandedHeight: 250,
             title: Center(
                 child: Text(
               'Product Detail',
@@ -38,8 +39,13 @@ class DetailsPage extends StatelessWidget {
                 color: AppColor.detailsIconColor,
               )
             ],
-            flexibleSpace: _flexibleSpaceBar('IRAN', 'BirthCake',
-                'very good and nice and very good hello ho'),
+            flexibleSpace: _flexibleSpaceBar(
+                'IRAN',
+                'BirthCake',
+                'very good and nice and very good he'
+                    'llo ho on a 2,000 ce and very good hello h'
+                    'o on a 2,000 ce and very good hello ho on a 2,000 '
+                    'calories dietPer cent Daily Values are'),
           ),
           SliverList(
               delegate: SliverChildListDelegate(
@@ -170,34 +176,82 @@ Widget _flexibleSpaceBar(
     String countyName, String itemName, String description) {
   return FlexibleSpaceBar(
     background: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('$countyName'),
-          Text('$itemName'),
-          Text('$description'),
+          Text(
+            '$countyName',
+            maxLines: 1,
+            style: TextStyle(
+                color: AppColor.dessertCountryColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 10),
+          ),
+          Text(
+            '$itemName',
+            maxLines: 1,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            '$description',
+            maxLines: 3,
+            style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             children: <Widget>[
               Expanded(
-                child: Container(
-                    child:
-                        IconButton(icon: Icon(Icons.star), onPressed: () {})),
+                child: SizedBox(
+                    height: 45,
+                    child: RaisedButton(
+                      child: Icon(
+                        Icons.favorite_border,
+                        color: AppColor.detailsIconColor,
+                      ),
+                      color: AppColor.detailsBkColor,
+                      elevation: 0,
+                      highlightElevation: 0,
+                      onPressed: () {},
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: AppColor.detailsIconColor),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20),
+                        ),
+                      ),
+                    )),
                 flex: 1,
               ),
               SizedBox(
                 width: 25,
               ),
               Expanded(
-                child: RaisedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'FIND NEAREST STORE',
-                    style: TextStyle(fontSize: 10),
+                child: SizedBox(
+                  height: 45,
+                  child: RaisedButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    color: AppColor.detailsIconColor,
+                    onPressed: () {},
+                    child: Text(
+                      'FIND NEAREST STORE',
+                      style: TextStyle(
+                          fontSize: 10,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
-                flex: 3,
+                flex: 4,
               )
             ],
           )

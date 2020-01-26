@@ -9,6 +9,7 @@ class AppColor {
   static Color detailsBkColor = Colors.pink[50];
   static Color detailsIconColor = Colors.red[300];
   static Color detailsDraggableSheetColor = Colors.white;
+  static Color detailPageBorderColor = Colors.grey[200];
   static Color shopItemBorderColor = Colors.grey[200];
   static Color shopItemTextColor = Colors.black;
   static Color shopItemTimeColor = Colors.red[300];

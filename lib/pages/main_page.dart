@@ -2,6 +2,7 @@ import 'package:dessert_time/pages/category_page.dart';
 import 'package:dessert_time/pages/discovery.dart';
 import 'package:dessert_time/pages/profile_page.dart';
 import 'package:dessert_time/pages/search_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
 
@@ -60,7 +61,7 @@ class _MainPageState extends State<MainPage> {
                 '',
               ),
               icon: Icon(
-                Icons.home,
+                CupertinoIcons.home,
               ),
             ),
             BottomNavigationBarItem(
@@ -68,7 +69,7 @@ class _MainPageState extends State<MainPage> {
                 '',
               ),
               icon: Icon(
-                Icons.search,
+                CupertinoIcons.search,
               ),
             ),
             BottomNavigationBarItem(
@@ -76,7 +77,7 @@ class _MainPageState extends State<MainPage> {
                 '',
               ),
               icon: Icon(
-                Icons.folder_open,
+                CupertinoIcons.collections,
               ),
             ),
             BottomNavigationBarItem(
@@ -84,7 +85,7 @@ class _MainPageState extends State<MainPage> {
                 '',
               ),
               icon: Icon(
-                Icons.account_circle,
+                CupertinoIcons.profile_circled,
               ),
             ),
           ],

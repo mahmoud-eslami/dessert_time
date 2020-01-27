@@ -1,7 +1,7 @@
 import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+import 'package:flutter/rendering.dart';
 
 class DetailsPage extends StatelessWidget {
   @override
@@ -48,73 +48,102 @@ class DetailsPage extends StatelessWidget {
                     'calories dietPer cent Daily Values are'),
           ),
           SliverList(
-              delegate: SliverChildListDelegate(
-            <Widget>[
-              _dessertPicture(),
-              Container(
-                color: Colors.white,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      _nutritionParameters(),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      _newsArea(),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      _photoSlider(),
-                    ],
+            delegate: SliverChildListDelegate(
+              <Widget>[
+                _dessertPicture(),
+                Container(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        _nutritionParameters(),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        _newsArea(),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        _photoSlider(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(color: Colors.white, height: 150.0),
-              Container(color: Colors.white, height: 150.0),
-              Container(color: Colors.white, height: 150.0),
-            ],
-          ))
+                Container(color: Colors.white, height: 150.0),
+                Container(color: Colors.white, height: 150.0),
+                Container(color: Colors.white, height: 150.0),
+              ],
+            ),
+          ),
         ],
+        shrinkWrap: true,
       ),
     );
   }
 }
 
-Widget _photoSlider(){
-  return                       Container(
+Widget _photoSlider() {
+  return Container(
     decoration: BoxDecoration(
-      border:
-      Border.all(color: AppColor.detailPageBorderColor),
+      border: Border.all(color: AppColor.detailPageBorderColor),
       borderRadius: BorderRadius.circular(17),
     ),
     child: Column(
       children: <Widget>[
-        Row(
-          children: <Widget>[
-            Icon(
-              Icons.photo_size_select_actual,
-              color: AppColor.detailsIconColor,
-              size: 15,
-            ),
-            Text(
-              'Photo',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 12),
-            ),
-            Text(
-              '(10)',
-              style: TextStyle(
-                  fontWeight: FontWeight.w100,
-                  fontSize: 10),
-            ),
-          ],
+        Padding(
+          padding: EdgeInsets.only(left: 15, top: 15),
+          child: Row(
+            children: <Widget>[
+              Icon(
+                Icons.photo_size_select_actual,
+                color: AppColor.detailsIconColor,
+                size: 15,
+              ),
+              SizedBox(
+                width: 7,
+              ),
+              Text(
+                'Photos',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              ),
+              Text(
+                '(10)',
+                style: TextStyle(fontWeight: FontWeight.w100, fontSize: 10),
+              ),
+            ],
+          ),
         ),
+        SizedBox(height: 10,),
+        Padding(padding: EdgeInsets.only(bottom: 20),
+            child: _photoList()),
       ],
     ),
+  );
+}
+
+Widget _photoList() {
+  return SizedBox(
+    height: 100,
+    child: ListView.builder(
+      padding: EdgeInsets.only(left: 10),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: Material(
+              color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                clipBehavior: Clip.hardEdge,
+                child: Image.asset('assets/images/cakee.jpg',width: 100,)),
+          );
+        }),
   );
 }
 
@@ -123,29 +152,38 @@ Widget _newsArea() {
     decoration: BoxDecoration(
         border: Border.all(color: AppColor.detailPageBorderColor),
         borderRadius: BorderRadius.circular(17)),
-    child: Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Icon(
-              Icons.error_outline,
-              color: AppColor.detailsIconColor,
-              size: 15,
-            ),
-            Text(
-              'Notice',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        Text(
-          'Per cent Daily Values are based on a 2,000'
-          ' calories diet.Per cent Daily Values are based '
-          'on a 2,000 calories dietPer cent Daily Values are '
-          'based on a 2,000 calories diet',
-          style: TextStyle(fontSize: 9, color: Colors.grey),
-        ),
-      ],
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.error_outline,
+                color: AppColor.detailsIconColor,
+                size: 15,
+              ),
+              SizedBox(
+                width: 7,
+              ),
+              Text(
+                'Notice',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Per cent Daily Values are based on a 2,000'
+            ' calories diet.Per cent Daily Values are based '
+            'on a 2,000 calories dietPer cent Daily Values are '
+            'based on a 2,000 calories diet',
+            style: TextStyle(fontSize: 9, color: Colors.grey),
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -155,30 +193,37 @@ Widget _nutritionParameters() {
     decoration: BoxDecoration(
         border: Border.all(color: AppColor.detailPageBorderColor),
         borderRadius: BorderRadius.circular(17)),
-    child: Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Icon(
-              Icons.format_list_bulleted,
-              color: AppColor.detailsIconColor,
-              size: 15,
-            ),
-            Text(
-              'Nutrition Facts',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-            ),
-            IconButton(
-                icon: Icon(
-                  Icons.error_outline,
-                  size: 14,
-                  color: Colors.grey,
-                ),
-                onPressed: () {})
-          ],
-        ),
-        //todo:add a custom widget
-      ],
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(
+                Icons.format_list_bulleted,
+                color: AppColor.detailsIconColor,
+                size: 15,
+              ),
+              SizedBox(
+                width: 7,
+              ),
+              Text(
+                'Nutrition Facts',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(
+                Icons.error_outline,
+                size: 14,
+                color: Colors.grey,
+              ),
+            ],
+          ),
+          //todo:add a custom widget
+        ],
+      ),
     ),
   );
 }
@@ -210,6 +255,7 @@ Widget _dessertPicture() {
 Widget _flexibleSpaceBar(
     String countyName, String itemName, String description) {
   return FlexibleSpaceBar(
+    collapseMode: CollapseMode.pin,
     background: Padding(
       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
       child: Column(

@@ -71,6 +71,7 @@ class DiscoveryPage extends StatelessWidget {
                         country: dessertList[index].country,
                         name: dessertList[index].name,
                         description: dessertList[index].desc,
+                        dessert: dessertList[index],
                       ),
                     ),
                   );
@@ -286,9 +287,10 @@ class DessertItem extends StatelessWidget {
   final String name;
   final String description;
   final String country;
+  final Dessert dessert;
 
   const DessertItem(
-      {Key key, this.image, this.name, this.description, this.country})
+      {Key key, this.image, this.name, this.description, this.country, this.dessert})
       : super(key: key);
 
   @override
@@ -306,9 +308,9 @@ class DessertItem extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: InkWell(
             onTap: () {
-              var dessertItem = Dessert(image: image,name: name,country: country,desc: description,);
+              var dessert_Item = dessert;
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DetailsPage(dessert: dessertItem,)));
+                  MaterialPageRoute(builder: (context) => DetailsPage(dessert: dessert_Item,)));
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -54,7 +54,7 @@ class DetailsPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               <Widget>[
-                _dessertPicture(),
+                _dessertPicture(dessert),
                 Container(
                   color: Colors.white,
                   child: Padding(
@@ -230,7 +230,7 @@ Widget _nutritionParameters() {
   );
 }
 
-Widget _dessertPicture() {
+Widget _dessertPicture(Dessert dessert) {
   return SizedBox(
     height: 170,
     child: Stack(
@@ -245,8 +245,8 @@ Widget _dessertPicture() {
         ),
         Align(
             alignment: Alignment.topCenter,
-            child: Image.asset(
-              'assets/images/birthcake.png',
+            child: Image.network(
+              dessert.image,
               height: 140,
             )),
       ],

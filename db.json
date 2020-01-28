@@ -4,28 +4,28 @@
       "image": "http://s6.picofile.com/file/8384720000/cookie.png",
       "name": "Cake",
       "country": "IRAN",
-      "desc": "Mozzarella Cheeze",
+      "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       "foodType": "Cake"
     },
         {
       "image": "http://s6.picofile.com/file/8384720068/birthcake.png",
       "name": "Cup Cake",
       "country": "UK",
-      "desc": "best",
+      "desc": "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
       "foodType": "Cake"
     },
         {
       "image": "http://s6.picofile.com/file/8384720000/cookie.png",
       "name": "CocoPop",
       "country": "USA",
-      "desc": "Mozzarella aw",
+      "desc": "but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets",
       "foodType": "Coco"
     },
         {
       "image": "http://s6.picofile.com/file/8384720068/birthcake.png",
       "name": "Cream Coco",
       "country": "IRAQ",
-      "desc": "Mozzarella",
+      "desc": "containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
       "foodType": "Coco"
     }
   ]

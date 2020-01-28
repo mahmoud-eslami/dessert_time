@@ -7,8 +7,7 @@ import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DiscoveryPage extends StatelessWidget {
-
-  List<Dessert> dessertList =[];
+  List<Dessert> dessertList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,7 @@ class DiscoveryPage extends StatelessWidget {
               ),
               BlocBuilder<DessertBloc, DessertState>(
                 builder: (context, state) {
-                  if(state is LoadedDessertListState){
+                  if (state is LoadedDessertListState) {
                     dessertList = state.dessertList;
                   }
                   return SizedBox(
@@ -67,10 +66,6 @@ class DiscoveryPage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: dessertList.length,
                       itemBuilder: (context, index) => DessertItem(
-                        image: dessertList[index].image,
-                        country: dessertList[index].country,
-                        name: dessertList[index].name,
-                        description: dessertList[index].desc,
                         dessert: dessertList[index],
                       ),
                     ),
@@ -283,15 +278,9 @@ class ShopItem extends StatelessWidget {
 }
 
 class DessertItem extends StatelessWidget {
-  final String image;
-  final String name;
-  final String description;
-  final String country;
   final Dessert dessert;
 
-  const DessertItem(
-      {Key key, this.image, this.name, this.description, this.country, this.dessert})
-      : super(key: key);
+  const DessertItem({Key key, this.dessert}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -301,33 +290,37 @@ class DessertItem extends StatelessWidget {
         height: 240,
         width: 150,
         decoration: BoxDecoration(
-          color: AppColor.dessertItemBkColor,
+          color: Color(dessert.background),
           borderRadius: BorderRadius.circular(17),
         ),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: InkWell(
             onTap: () {
-              var dessert_Item = dessert;
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DetailsPage(dessert: dessert_Item,)));
+              var dessertItem = dessert;
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailsPage(
+                            dessert: dessertItem,
+                          )));
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Image.network(
-                  image,
+                  dessert.image,
                   height: 90,
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
-                  country,
+                  dessert.country,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: AppColor.dessertCountryColor,
+                      color: Color(dessert.iconColor),
                       fontSize: 10,
                       fontWeight: FontWeight.w500),
                 ),
@@ -335,7 +328,7 @@ class DessertItem extends StatelessWidget {
                   height: 3,
                 ),
                 Text(
-                  name,
+                  dessert.name,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.dessertTitleColor,
@@ -346,7 +339,7 @@ class DessertItem extends StatelessWidget {
                   height: 3,
                 ),
                 Text(
-                  description,
+                  dessert.desc,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       color: AppColor.dessertDesColor,

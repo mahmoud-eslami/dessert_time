@@ -11,13 +11,13 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.detailsBkColor,
+      backgroundColor: Color(dessert.background),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
             pinned: true,
             elevation: 0,
-            backgroundColor: AppColor.detailsBkColor,
+            backgroundColor: Color(dessert.background),
             expandedHeight: 250,
             title: Center(
                 child: Text(
@@ -30,7 +30,7 @@ class DetailsPage extends StatelessWidget {
             leading: IconButton(
               icon: Icon(
                 Icons.keyboard_backspace,
-                color: AppColor.detailsIconColor,
+                color: Color(dessert.iconColor),
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -40,7 +40,7 @@ class DetailsPage extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.share),
                 onPressed: () {},
-                color: AppColor.detailsIconColor,
+                color: Color(dessert.iconColor),
               )
             ],
             flexibleSpace: _flexibleSpaceBar(dessert),
@@ -57,15 +57,15 @@ class DetailsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        _nutritionParameters(),
+                        _nutritionParameters(dessert),
                         SizedBox(
                           height: 15,
                         ),
-                        _newsArea(),
+                        _newsArea(dessert),
                         SizedBox(
                           height: 15,
                         ),
-                        _photoSlider(),
+                        _photoSlider(dessert),
                       ],
                     ),
                   ),
@@ -84,7 +84,7 @@ class DetailsPage extends StatelessWidget {
   }
 }
 
-Widget _photoSlider() {
+Widget _photoSlider(Dessert dessert) {
   return Container(
     decoration: BoxDecoration(
       border: Border.all(color: AppColor.detailPageBorderColor),
@@ -98,7 +98,7 @@ Widget _photoSlider() {
             children: <Widget>[
               Icon(
                 Icons.photo_size_select_actual,
-                color: AppColor.detailsIconColor,
+                color: Color(dessert.iconColor),
                 size: 15,
               ),
               SizedBox(
@@ -150,7 +150,7 @@ Widget _photoList() {
   );
 }
 
-Widget _newsArea() {
+Widget _newsArea(Dessert dessert) {
   return Container(
     decoration: BoxDecoration(
         border: Border.all(color: AppColor.detailPageBorderColor),
@@ -163,7 +163,7 @@ Widget _newsArea() {
             children: <Widget>[
               Icon(
                 Icons.error_outline,
-                color: AppColor.detailsIconColor,
+                color: Color(dessert.iconColor),
                 size: 15,
               ),
               SizedBox(
@@ -191,7 +191,7 @@ Widget _newsArea() {
   );
 }
 
-Widget _nutritionParameters() {
+Widget _nutritionParameters(Dessert dessert) {
   return Container(
     decoration: BoxDecoration(
         border: Border.all(color: AppColor.detailPageBorderColor),
@@ -204,7 +204,7 @@ Widget _nutritionParameters() {
             children: <Widget>[
               Icon(
                 Icons.format_list_bulleted,
-                color: AppColor.detailsIconColor,
+                color: Color(dessert.iconColor),
                 size: 15,
               ),
               SizedBox(
@@ -268,7 +268,7 @@ Widget _flexibleSpaceBar(Dessert dessert) {
             dessert.country,
             maxLines: 1,
             style: TextStyle(
-                color: AppColor.dessertCountryColor,
+                color: Color(dessert.iconColor),
                 fontWeight: FontWeight.bold,
                 fontSize: 10),
           ),
@@ -299,14 +299,14 @@ Widget _flexibleSpaceBar(Dessert dessert) {
                     child: RaisedButton(
                       child: Icon(
                         Icons.favorite_border,
-                        color: AppColor.detailsIconColor,
+                        color: Color(dessert.iconColor),
                       ),
-                      color: AppColor.detailsBkColor,
+                      color: Color(dessert.background),
                       elevation: 0,
                       highlightElevation: 0,
                       onPressed: () {},
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: AppColor.detailsIconColor),
+                        side: BorderSide(color: Color(dessert.iconColor)),
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),
                         ),
@@ -323,7 +323,7 @@ Widget _flexibleSpaceBar(Dessert dessert) {
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20))),
-                    color: AppColor.detailsIconColor,
+                    color: Color(dessert.iconColor),
                     onPressed: () {},
                     child: Text(
                       'FIND NEAREST STORE',

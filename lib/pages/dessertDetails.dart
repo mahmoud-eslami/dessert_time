@@ -6,7 +6,7 @@ import 'package:flutter/rendering.dart';
 class DetailsPage extends StatelessWidget {
   final Dessert dessert;
 
-  const DetailsPage({Key key,@required this.dessert}) : super(key: key);
+  const DetailsPage({Key key, @required this.dessert}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +43,7 @@ class DetailsPage extends StatelessWidget {
                 color: AppColor.detailsIconColor,
               )
             ],
-            flexibleSpace: _flexibleSpaceBar(
-                'IRAN',
-                'BirthCake',
-                'very good and nice and very good he'
-                    'llo ho on a 2,000 ce and very good hello h'
-                    'o on a 2,000 ce and very good hello ho on a 2,000 '
-                    'calories dietPer cent Daily Values are'),
+            flexibleSpace: _flexibleSpaceBar(dessert),
           ),
           SliverList(
             delegate: SliverChildListDelegate(
@@ -76,7 +70,10 @@ class DetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(height: 200,color: Colors.white,)
+                Container(
+                  height: 200,
+                  color: Colors.white,
+                )
               ],
             ),
           ),
@@ -118,9 +115,10 @@ Widget _photoSlider() {
             ],
           ),
         ),
-        SizedBox(height: 10,),
-        Padding(padding: EdgeInsets.only(bottom: 20),
-            child: _photoList()),
+        SizedBox(
+          height: 10,
+        ),
+        Padding(padding: EdgeInsets.only(bottom: 20), child: _photoList()),
       ],
     ),
   );
@@ -130,7 +128,7 @@ Widget _photoList() {
   return SizedBox(
     height: 100,
     child: ListView.builder(
-      padding: EdgeInsets.only(left: 10),
+        padding: EdgeInsets.only(left: 10),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: 20,
@@ -138,12 +136,15 @@ Widget _photoList() {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 8),
             child: Material(
-              color: Colors.white,
+                color: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
                 clipBehavior: Clip.hardEdge,
-                child: Image.asset('assets/images/cakee.jpg',width: 100,)),
+                child: Image.asset(
+                  'assets/images/cakee.jpg',
+                  width: 100,
+                )),
           );
         }),
   );
@@ -254,8 +255,7 @@ Widget _dessertPicture(Dessert dessert) {
   );
 }
 
-Widget _flexibleSpaceBar(
-    String countyName, String itemName, String description) {
+Widget _flexibleSpaceBar(Dessert dessert) {
   return FlexibleSpaceBar(
     collapseMode: CollapseMode.pin,
     background: Padding(
@@ -265,7 +265,7 @@ Widget _flexibleSpaceBar(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            '$countyName',
+            dessert.country,
             maxLines: 1,
             style: TextStyle(
                 color: AppColor.dessertCountryColor,
@@ -273,7 +273,7 @@ Widget _flexibleSpaceBar(
                 fontSize: 10),
           ),
           Text(
-            '$itemName',
+            dessert.name,
             maxLines: 1,
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -284,7 +284,7 @@ Widget _flexibleSpaceBar(
             height: 10,
           ),
           Text(
-            '$description',
+            dessert.desc,
             maxLines: 3,
             style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
           ),

@@ -5,35 +5,40 @@
       "name": "koloche",
       "country": "INDIA",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "foodType": "Cake"
+      "foodType": "Cake",
+       "background": 4288269567
     },
      {
       "image": "http://s6.picofile.com/file/8386353584/cakere.png",
       "name": "Nightly",
       "country": "MECCA",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "foodType": "Cake"
+      "foodType": "Cake",
+       "background": 4294945408
     },
      {
       "image": "http://s7.picofile.com/file/8386353618/patisserie.png",
       "name": "Cream",
       "country": "SWEDDEN",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "foodType": "Cake"
+      "foodType": "Cake",
+       "background": 4292457471
     },
     {
       "image": "http://s6.picofile.com/file/8384720000/cookie.png",
       "name": "Cake",
       "country": "IRAN",
       "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "foodType": "Cake"
+      "foodType": "Cake",
+       "background": 4294950784
     },
         {
       "image": "http://s6.picofile.com/file/8384720068/birthcake.png",
       "name": "Cup Cake",
       "country": "UK",
       "desc": "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
-      "foodType": "Cake"
+      "foodType": "Cake",
+       "background": 4294947839
     }
   ]
 }

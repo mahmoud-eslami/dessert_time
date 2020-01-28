@@ -1,8 +1,15 @@
+import 'package:dessert_time/bloc/dessert_bloc/dessert_bloc.dart';
+import 'package:dessert_time/bloc/dessert_bloc/dessert_state.dart';
+import 'package:dessert_time/model/dessert.dart';
 import 'package:dessert_time/pages/dessertDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DiscoveryPage extends StatelessWidget {
+
+  List<Dessert> dessertList =[];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -11,7 +18,7 @@ class DiscoveryPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -48,19 +55,26 @@ class DiscoveryPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                height: 240,
-                child: ListView.builder(
-                  padding: EdgeInsets.only(left: 20),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => DessertItem(
-                    image: 'assets/images/birthcake.png',
-                    country: 'IRAN',
-                    name: 'Cake $index',
-                    description: '28 available store nearby',
-                  ),
-                ),
+              BlocBuilder<DessertBloc, DessertState>(
+                builder: (context, state) {
+                  if(state is LoadedDessertListState){
+                    dessertList = state.dessertList;
+                  }
+                  return SizedBox(
+                    height: 240,
+                    child: ListView.builder(
+                      padding: EdgeInsets.only(left: 20),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: dessertList.length,
+                      itemBuilder: (context, index) => DessertItem(
+                        image: dessertList[index].image,
+                        country: dessertList[index].country,
+                        name: dessertList[index].name,
+                        description: dessertList[index].desc,
+                      ),
+                    ),
+                  );
+                },
               ),
               SizedBox(
                 height: 20,
@@ -132,16 +146,22 @@ class CustomTabBar extends StatelessWidget {
                     isScrollable: true,
                     tabs: <Widget>[
                       Container(
-                        child: Text('Cake',maxLines: 1,overflow: TextOverflow.ellipsis, style: style),
+                        child: Text('Cake',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: style),
                       ),
                       Container(
-                        child: Text('Coco',overflow: TextOverflow.ellipsis, style: style),
+                        child: Text('Coco',
+                            overflow: TextOverflow.ellipsis, style: style),
                       ),
                       Container(
-                        child: Text('Ice Cream',overflow: TextOverflow.ellipsis, style: style),
+                        child: Text('Ice Cream',
+                            overflow: TextOverflow.ellipsis, style: style),
                       ),
                       Container(
-                        child: Text('Drink',overflow: TextOverflow.ellipsis, style: style),
+                        child: Text('Drink',
+                            overflow: TextOverflow.ellipsis, style: style),
                       ),
                     ],
                   ),
@@ -285,12 +305,15 @@ class DessertItem extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(20),
           child: InkWell(
-            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => DetailsPage()));
+            },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Image.asset(
+                Image.network(
                   image,
                   height: 90,
                 ),

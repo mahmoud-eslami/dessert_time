@@ -18,7 +18,9 @@ class _HomeState extends State<Home> {
       builder: (context, state) {
         if (state is InitialDessertState) {
           return SplashScreen();
-        } else if (state is LoadingDessertListState) {}
+        } else if (state is LoadingDessertListState) {
+        } else if (state is LoadedDessertListState) {
+        }
         return MainPage();
       },
     );

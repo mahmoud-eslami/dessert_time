@@ -1,9 +1,13 @@
+import 'package:dessert_time/model/dessert.dart';
 import 'package:dessert_time/resource/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class DetailsPage extends StatelessWidget {
+  final Dessert dessert;
+
+  const DetailsPage({Key key,@required this.dessert}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,11 +72,11 @@ class DetailsPage extends StatelessWidget {
                           height: 15,
                         ),
                         _photoSlider(),
-                        SizedBox(height: 25,),
                       ],
                     ),
                   ),
                 ),
+                Container(height: 200,color: Colors.white,)
               ],
             ),
           ),

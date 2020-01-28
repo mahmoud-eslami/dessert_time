@@ -1,4 +1,3 @@
-import 'package:dessert_time/model/dessert.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class DessertEvent extends Equatable {
@@ -19,11 +18,6 @@ class AppStart extends DessertEvent {
 }
 
 class DessertItemOnTap extends DessertEvent {
-
-  final Dessert selectedDessert;
-
-  DessertItemOnTap({this.selectedDessert});
-
   @override
   List<Object> get props => [];
 

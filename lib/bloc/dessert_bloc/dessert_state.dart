@@ -29,7 +29,6 @@ class LoadedDessertListState extends DessertState {
   LoadedDessertListState({this.dessertList});
 
   @override
-  // TODO: implement props
   List<Object> get props => [dessertList];
 
   @override

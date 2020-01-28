@@ -17,7 +17,7 @@ class Dessert {
     @required this.name,
     @required this.country,
     @required this.desc,
-    @required this.foodType,
+    this.foodType,
   });
 
   Dessert copyWith({
@@ -40,18 +40,18 @@ class Dessert {
   String toRawJson() => json.encode(toJson());
 
   factory Dessert.fromJson(Map<String, dynamic> json) => Dessert(
-    image: json["image"],
-    name: json["name"],
-    country: json["country"],
-    desc: json["desc"],
-    foodType: json["foodType"],
-  );
+        image: json["image"],
+        name: json["name"],
+        country: json["country"],
+        desc: json["desc"],
+        foodType: json["foodType"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "image": image,
-    "name": name,
-    "country": country,
-    "desc": desc,
-    "foodType": foodType,
-  };
+        "image": image,
+        "name": name,
+        "country": country,
+        "desc": desc,
+        "foodType": foodType,
+      };
 }

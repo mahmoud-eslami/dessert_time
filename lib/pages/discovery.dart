@@ -306,8 +306,9 @@ class DessertItem extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: InkWell(
             onTap: () {
+              var dessertItem = Dessert(image: image,name: name,country: country,desc: description,);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DetailsPage()));
+                  MaterialPageRoute(builder: (context) => DetailsPage(dessert: dessertItem,)));
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

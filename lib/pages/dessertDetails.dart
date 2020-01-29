@@ -224,7 +224,82 @@ Widget _nutritionParameters(Dessert dessert) {
               ),
             ],
           ),
-          //todo:add a custom widget
+          SizedBox(height: 10,),
+          _nutritionChart(dessert, 'Water', '19 g', 6),
+          _nutritionChart(dessert, 'Water', '19 g', 6),
+          _nutritionChart(dessert, 'Water', '19 g', 6),
+          _nutritionChart(dessert, 'Water', '19 g', 6),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget _nutritionChart(
+    Dessert dessert, String name, String weight, int percent) {
+  return Padding(
+    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+    child: SizedBox(
+      height: 30,
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                '$name',
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                '$weight',
+                style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w100),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                width: 70,
+              ),
+              Text(
+                '$percent%',
+                style: TextStyle(
+                    color: Colors.grey[700],
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 6,
+          ),
+          SizedBox(
+            height: 4,
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(40)
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(dessert.iconColor),
+                    borderRadius: BorderRadius.circular(40)
+                  ),
+                  width: 30,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     ),
@@ -295,23 +370,24 @@ Widget _flexibleSpaceBar(Dessert dessert) {
             children: <Widget>[
               Expanded(
                 child: SizedBox(
-                    height: 45,
-                    child: RaisedButton(
-                      child: Icon(
-                        Icons.favorite_border,
-                        color: Color(dessert.iconColor),
+                  height: 45,
+                  child: RaisedButton(
+                    child: Icon(
+                      Icons.favorite_border,
+                      color: Color(dessert.iconColor),
+                    ),
+                    color: Color(dessert.background),
+                    elevation: 0,
+                    highlightElevation: 0,
+                    onPressed: () {},
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(color: Color(dessert.iconColor)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(20),
                       ),
-                      color: Color(dessert.background),
-                      elevation: 0,
-                      highlightElevation: 0,
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(dessert.iconColor)),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                    )),
+                    ),
+                  ),
+                ),
                 flex: 1,
               ),
               SizedBox(

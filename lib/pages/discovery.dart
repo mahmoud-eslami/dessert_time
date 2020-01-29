@@ -101,8 +101,8 @@ class DiscoveryPage extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) => ShopItem(
                     image: 'assets/images/shoppop.jpg',
-                    shopName: 'bazzar',
-                    description: 'it,s a fake shop fo test',
+                    shopName: 'Test',
+                    description: 'it,s a fake shop for test',
                     openTime: '9 - 13 AM',
                   ),
                 ),

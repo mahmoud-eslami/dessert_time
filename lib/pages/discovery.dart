@@ -297,7 +297,7 @@ class DessertItem extends StatelessWidget {
         height: 240,
         width: 155,
         decoration: BoxDecoration(
-          color: Color(dessert.background),
+          color: Color(dessert.background).withOpacity(.3),
           borderRadius: BorderRadius.circular(17),
         ),
         child: Padding(
@@ -312,50 +312,53 @@ class DessertItem extends StatelessWidget {
                             dessert: dessertItem,
                           )));
             },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Center(
-                  child: Image.network(
-                    dessert.image,
-                    height: 90,
+            child: Padding(
+              padding: EdgeInsets.only(top: 15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Center(
+                    child: Image.network(
+                      dessert.image,
+                      height: 90,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  dessert.country,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: Color(dessert.iconColor),
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  dessert.name,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: AppColor.dessertTitleColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900),
-                ),
-                SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  dessert.desc,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: AppColor.dessertDesColor,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w300),
-                ),
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    dessert.country,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Color(dessert.iconColor),
+                        fontSize: 10,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    dessert.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: AppColor.dessertTitleColor,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900),
+                  ),
+                  SizedBox(
+                    height: 3,
+                  ),
+                  Text(
+                    dessert.desc,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: AppColor.dessertDesColor,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w300),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

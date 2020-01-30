@@ -327,11 +327,12 @@ Widget _flexibleSpaceBar(Dessert dessert) {
                     Icons.favorite_border,
                     color: Color(dessert.iconColor),
                   ),
-                    padding:  EdgeInsets.all(0),
+                  padding: EdgeInsets.all(0),
                   color: Color(dessert.background),
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
-                    side: BorderSide(color: Color(dessert.iconColor).withOpacity(.5)),
+                    side: BorderSide(
+                        color: Color(dessert.iconColor).withOpacity(.5)),
                     borderRadius: BorderRadius.all(
                       Radius.circular(18),
                     ),
@@ -434,7 +435,7 @@ class NutritionChart extends StatelessWidget {
                   LayoutBuilder(
                     builder: (context, constraint) {
                       return Container(
-                        width: (constraint.maxWidth/100)*percent,
+                        width: (constraint.maxWidth / 100) * percent,
                         decoration: BoxDecoration(
                             color: Color(dessert.iconColor),
                             borderRadius: BorderRadius.circular(40)),

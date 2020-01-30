@@ -57,31 +57,25 @@ class _MainPageState extends State<MainPage> {
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              title: Text(
-                '',
-              ),
+              title: Text(''),
               icon: Icon(
                 CupertinoIcons.home,
               ),
             ),
             BottomNavigationBarItem(
-              title: SizedBox.shrink(),
+              title: Text(''),
               icon: Icon(
                 CupertinoIcons.search,
               ),
             ),
             BottomNavigationBarItem(
-              title: Text(
-                'asdasd',
-              style: TextStyle(color: Colors.black),),
+              title: Text(''),
               icon: Icon(
                 CupertinoIcons.collections,
               ),
             ),
             BottomNavigationBarItem(
-              title: Text(
-                '',
-              ),
+              title: Text(''),
               icon: Icon(
                 CupertinoIcons.profile_circled,
               ),

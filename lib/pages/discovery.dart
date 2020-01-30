@@ -239,12 +239,12 @@ class ShopItem extends StatelessWidget {
           children: <Widget>[
             Material(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(14),
               ),
               clipBehavior: Clip.hardEdge,
               child: Image.network(
                 shop.image,
-                height: 40,
+                height: 50,
               ),
             ),
             SizedBox(
@@ -267,7 +267,7 @@ class ShopItem extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  shop.desc,
+                  'Best',
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: TextStyle(

@@ -25,8 +25,9 @@ class LoadingDessertListState extends DessertState {
 class LoadedDessertListState extends DessertState {
 
   final List<Dessert> dessertList;
+  final List<Shop> shopList;
 
-  LoadedDessertListState({this.dessertList});
+  LoadedDessertListState({this.dessertList,this.shopList});
 
   @override
   List<Object> get props => [dessertList];

@@ -13,6 +13,7 @@ class DiscoveryPage extends StatefulWidget {
 
 class _DiscoveryPageState extends State<DiscoveryPage> {
   List<Dessert> dessertList = [];
+  List<Shop> shopList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -97,19 +98,23 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
             SizedBox(
               height: 20,
             ),
-            SizedBox(
-              height: 70,
-              child: ListView.builder(
-                padding: EdgeInsets.only(left: 20),
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) => ShopItem(
-                  image: 'assets/images/shoppop.jpg',
-                  shopName: 'Test',
-                  description: 'it,s a fake shop for test',
-                  openTime: '9 - 13 AM',
-                ),
-              ),
+            BlocBuilder<DessertBloc, DessertState>(
+              builder: (context, state) {
+                if (state is LoadedDessertListState) {
+                  shopList = state.shopList;
+                }
+                return SizedBox(
+                  height: 70,
+                  child: ListView.builder(
+                    padding: EdgeInsets.only(left: 20),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: shopList.length,
+                    itemBuilder: (context, index) => ShopItem(
+                      shop: shopList[index],
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -142,29 +147,38 @@ class CustomTabBar extends StatelessWidget {
                     indicatorSize: TabBarIndicatorSize.label,
                     indicator: CircleTabIndicator(
                         color: AppColor.tabBarIndicator, radius: 4),
-                    labelStyle: style.copyWith(fontWeight: FontWeight.bold,color: Colors.black),
-                    unselectedLabelStyle: style.copyWith(fontWeight: FontWeight.normal,color: Colors.black),
+                    labelStyle: style.copyWith(
+                        fontWeight: FontWeight.bold, color: Colors.black),
+                    unselectedLabelStyle: style.copyWith(
+                        fontWeight: FontWeight.normal, color: Colors.black),
                     unselectedLabelColor: AppColor.tabBarItemColor,
                     labelColor: AppColor.tabBarItemColor,
                     isScrollable: true,
                     tabs: <Widget>[
                       Container(
-                        child: Text('Cake',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            ),
+                        child: Text(
+                          'Cake',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       Container(
-                        child: Text('Coco',
-                            overflow: TextOverflow.ellipsis, ),
+                        child: Text(
+                          'Coco',
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       Container(
-                        child: Text('Ice Cream',
-                            overflow: TextOverflow.ellipsis, ),
+                        child: Text(
+                          'Ice Cream',
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       Container(
-                        child: Text('Drink',
-                            overflow: TextOverflow.ellipsis, ),
+                        child: Text(
+                          'Drink',
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   ),
@@ -206,14 +220,9 @@ class _CirclePainter extends BoxPainter {
 }
 
 class ShopItem extends StatelessWidget {
-  final String image;
-  final String shopName;
-  final String description;
-  final String openTime;
+  final Shop shop;
 
-  const ShopItem(
-      {Key key, this.image, this.shopName, this.description, this.openTime})
-      : super(key: key);
+  const ShopItem({Key key, this.shop}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -233,8 +242,8 @@ class ShopItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
               clipBehavior: Clip.hardEdge,
-              child: Image.asset(
-                image,
+              child: Image.network(
+                shop.image,
                 height: 40,
               ),
             ),
@@ -246,8 +255,9 @@ class ShopItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  shopName,
+                  shop.name,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                   style: TextStyle(
                       color: AppColor.shopItemTextColor,
                       fontSize: 13,
@@ -257,8 +267,9 @@ class ShopItem extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  description,
+                  shop.desc,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                   style: TextStyle(
                       color: AppColor.shopItemTextColor,
                       fontSize: 10,
@@ -268,8 +279,9 @@ class ShopItem extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  openTime,
+                  shop.openTime,
                   overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                   style: TextStyle(
                       color: AppColor.shopItemTimeColor,
                       fontSize: 8,
@@ -306,11 +318,13 @@ class DessertItem extends StatelessWidget {
             onTap: () {
               var dessertItem = dessert;
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DetailsPage(
-                            dessert: dessertItem,
-                          )));
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsPage(
+                    dessert: dessertItem,
+                  ),
+                ),
+              );
             },
             child: Padding(
               padding: EdgeInsets.only(top: 15),

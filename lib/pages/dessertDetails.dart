@@ -319,37 +319,34 @@ Widget _flexibleSpaceBar(Dessert dessert) {
           ),
           Row(
             children: <Widget>[
-              Expanded(
-                child: SizedBox(
-                  height: 45,
-                  child: RaisedButton(
-                    child: Icon(
-                      Icons.favorite_border,
-                      color: Color(dessert.iconColor),
-                    ),
-                    color: Color(dessert.background),
-                    elevation: 0,
-                    highlightElevation: 0,
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Color(dessert.iconColor)),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
+              SizedBox(
+                height: 50,
+                width: 50,
+                child: FlatButton(
+                  child: Icon(
+                    Icons.favorite_border,
+                    color: Color(dessert.iconColor),
+                  ),
+                    padding:  EdgeInsets.all(0),
+                  color: Color(dessert.background),
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Color(dessert.iconColor).withOpacity(.5)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(18),
                     ),
                   ),
                 ),
-                flex: 1,
               ),
               SizedBox(
-                width: 25,
+                width: 15,
               ),
               Expanded(
                 child: SizedBox(
-                  height: 45,
+                  height: 50,
                   child: RaisedButton(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                        borderRadius: BorderRadius.all(Radius.circular(18))),
                     color: Color(dessert.iconColor),
                     onPressed: () {},
                     child: Text(
@@ -402,24 +399,23 @@ class NutritionChart extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Text(
-                  '$weight',
-                  style: TextStyle(
-                      color: Colors.black87,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w100),
-                  textAlign: TextAlign.center,
-                ),
-                Align(
-                  alignment: Alignment.topRight,
+                Expanded(
                   child: Text(
-                    '$percent%',
+                    '$weight',
                     style: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 11,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
+                        color: Colors.black87,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w100),
+                    textAlign: TextAlign.left,
                   ),
+                ),
+                Text(
+                  '$percent%',
+                  style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

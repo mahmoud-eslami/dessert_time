@@ -6,109 +6,112 @@ import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DiscoveryPage extends StatelessWidget {
+class DiscoveryPage extends StatefulWidget {
+  @override
+  _DiscoveryPageState createState() => _DiscoveryPageState();
+}
+
+class _DiscoveryPageState extends State<DiscoveryPage> {
   List<Dessert> dessertList = [];
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        'Discover dessert\naround the world',
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 27,
-                          fontWeight: FontWeight.bold,
-                        ),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      'Discover dessert\naround the world',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 27,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Material(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      clipBehavior: Clip.hardEdge,
-                      elevation: 13,
-                      child: Image.asset(
-                        'assets/images/profile.jpg',
-                        fit: BoxFit.cover,
-                        height: 35,
-                        width: 35,
-                      ),
+                  ),
+                  Material(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: CustomTabBar()),
-              SizedBox(
-                height: 20,
-              ),
-              BlocBuilder<DessertBloc, DessertState>(
-                builder: (context, state) {
-                  if (state is LoadedDessertListState) {
-                    dessertList = state.dessertList;
-                  }
-                  return SizedBox(
-                    height: 240,
-                    child: ListView.builder(
-                      padding: EdgeInsets.only(left: 20),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: dessertList.length,
-                      itemBuilder: (context, index) => DessertItem(
-                        dessert: dessertList[index],
-                      ),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    elevation: 13,
+                    child: Image.asset(
+                      'assets/images/profile.jpg',
+                      fit: BoxFit.cover,
+                      height: 40,
+                      width: 40,
                     ),
-                  );
-                },
+                  ),
+                ],
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 25),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Nearby CoffeShop',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+            ),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: CustomTabBar()),
+            SizedBox(
+              height: 20,
+            ),
+            BlocBuilder<DessertBloc, DessertState>(
+              builder: (context, state) {
+                if (state is LoadedDessertListState) {
+                  dessertList = state.dessertList;
+                }
+                return SizedBox(
+                  height: 220,
+                  child: ListView.builder(
+                    padding: EdgeInsets.only(left: 20),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: dessertList.length,
+                    itemBuilder: (context, index) => DessertItem(
+                      dessert: dessertList[index],
                     ),
+                  ),
+                );
+              },
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 25),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Nearby CoffeShop',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 70,
-                child: ListView.builder(
-                  padding: EdgeInsets.only(left: 20),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 5,
-                  itemBuilder: (context, index) => ShopItem(
-                    image: 'assets/images/shoppop.jpg',
-                    shopName: 'Test',
-                    description: 'it,s a fake shop for test',
-                    openTime: '9 - 13 AM',
-                  ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 70,
+              child: ListView.builder(
+                padding: EdgeInsets.only(left: 20),
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder: (context, index) => ShopItem(
+                  image: 'assets/images/shoppop.jpg',
+                  shopName: 'Test',
+                  description: 'it,s a fake shop for test',
+                  openTime: '9 - 13 AM',
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -139,25 +142,29 @@ class CustomTabBar extends StatelessWidget {
                     indicatorSize: TabBarIndicatorSize.label,
                     indicator: CircleTabIndicator(
                         color: AppColor.tabBarIndicator, radius: 4),
+                    labelStyle: style.copyWith(fontWeight: FontWeight.bold,color: Colors.black),
+                    unselectedLabelStyle: style.copyWith(fontWeight: FontWeight.normal,color: Colors.black),
+                    unselectedLabelColor: AppColor.tabBarItemColor,
+                    labelColor: AppColor.tabBarItemColor,
                     isScrollable: true,
                     tabs: <Widget>[
                       Container(
                         child: Text('Cake',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: style),
+                            ),
                       ),
                       Container(
                         child: Text('Coco',
-                            overflow: TextOverflow.ellipsis, style: style),
+                            overflow: TextOverflow.ellipsis, ),
                       ),
                       Container(
                         child: Text('Ice Cream',
-                            overflow: TextOverflow.ellipsis, style: style),
+                            overflow: TextOverflow.ellipsis, ),
                       ),
                       Container(
                         child: Text('Drink',
-                            overflow: TextOverflow.ellipsis, style: style),
+                            overflow: TextOverflow.ellipsis, ),
                       ),
                     ],
                   ),
@@ -288,7 +295,7 @@ class DessertItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
         height: 240,
-        width: 150,
+        width: 155,
         decoration: BoxDecoration(
           color: Color(dessert.background),
           borderRadius: BorderRadius.circular(17),
@@ -306,12 +313,14 @@ class DessertItem extends StatelessWidget {
                           )));
             },
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image.network(
-                  dessert.image,
-                  height: 90,
+                Center(
+                  child: Image.network(
+                    dessert.image,
+                    height: 90,
+                  ),
                 ),
                 SizedBox(
                   height: 20,

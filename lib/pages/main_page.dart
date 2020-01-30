@@ -65,17 +65,15 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              title: Text(
-                '',
-              ),
+              title: SizedBox.shrink(),
               icon: Icon(
                 CupertinoIcons.search,
               ),
             ),
             BottomNavigationBarItem(
               title: Text(
-                '',
-              ),
+                'asdasd',
+              style: TextStyle(color: Colors.black),),
               icon: Icon(
                 CupertinoIcons.collections,
               ),

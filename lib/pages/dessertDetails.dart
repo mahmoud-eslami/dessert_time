@@ -224,82 +224,13 @@ Widget _nutritionParameters(Dessert dessert) {
               ),
             ],
           ),
-          SizedBox(height: 10,),
-          _nutritionChart(dessert, 'Water', '19 g', 6),
-          _nutritionChart(dessert, 'Water', '19 g', 6),
-          _nutritionChart(dessert, 'Water', '19 g', 6),
-          _nutritionChart(dessert, 'Water', '19 g', 6),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget _nutritionChart(
-    Dessert dessert, String name, String weight, int percent) {
-  return Padding(
-    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
-    child: SizedBox(
-      height: 30,
-      child: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(
-                '$name',
-                style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                '$weight',
-                style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w100),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                width: 70,
-              ),
-              Text(
-                '$percent%',
-                style: TextStyle(
-                    color: Colors.grey[700],
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
           SizedBox(
-            height: 6,
+            height: 10,
           ),
-          SizedBox(
-            height: 4,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(40)
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(dessert.iconColor),
-                    borderRadius: BorderRadius.circular(40)
-                  ),
-                  width: 30,
-                ),
-              ],
-            ),
-          )
+          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
+          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
+          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
+          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
         ],
       ),
     ),
@@ -419,3 +350,86 @@ Widget _flexibleSpaceBar(Dessert dessert) {
     ),
   );
 }
+
+
+class NutritionChart extends StatelessWidget {
+  final String name;
+  final String weight;
+  final int percent;
+  final Dessert dessert;
+
+  const NutritionChart(
+      {Key key, this.name, this.weight, this.percent, this.dessert})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
+      child: SizedBox(
+        height: 30,
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text(
+                  '$name',
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '$weight',
+                  style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w100),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  width: 70,
+                ),
+                Text(
+                  '$percent%',
+                  style: TextStyle(
+                      color: Colors.grey[700],
+                      fontSize: 11,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 6,
+            ),
+            SizedBox(
+              height: 4,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.circular(40)),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Color(dessert.iconColor),
+                        borderRadius: BorderRadius.circular(40)),
+                    width: 30,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+

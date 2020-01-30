@@ -227,10 +227,30 @@ Widget _nutritionParameters(Dessert dessert) {
           SizedBox(
             height: 10,
           ),
-          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
-          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
-          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
-          NutritionChart(name: 'water',weight: '19 g',percent: 6,dessert: dessert,),
+          NutritionChart(
+            name: 'Water',
+            weight: '19 g',
+            percent: 10,
+            dessert: dessert,
+          ),
+          NutritionChart(
+            name: 'Oil',
+            weight: '19 g',
+            percent: 100,
+            dessert: dessert,
+          ),
+          NutritionChart(
+            name: 'Vitamin C',
+            weight: '19 g',
+            percent: 60,
+            dessert: dessert,
+          ),
+          NutritionChart(
+            name: 'Total Fat',
+            weight: '19 g',
+            percent: 70,
+            dessert: dessert,
+          ),
         ],
       ),
     ),
@@ -351,7 +371,6 @@ Widget _flexibleSpaceBar(Dessert dessert) {
   );
 }
 
-
 class NutritionChart extends StatelessWidget {
   final String name;
   final String weight;
@@ -391,16 +410,16 @@ class NutritionChart extends StatelessWidget {
                       fontWeight: FontWeight.w100),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  width: 70,
-                ),
-                Text(
-                  '$percent%',
-                  style: TextStyle(
-                      color: Colors.grey[700],
-                      fontSize: 11,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    '$percent%',
+                    style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ],
             ),
@@ -416,11 +435,15 @@ class NutritionChart extends StatelessWidget {
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(40)),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Color(dessert.iconColor),
-                        borderRadius: BorderRadius.circular(40)),
-                    width: 30,
+                  LayoutBuilder(
+                    builder: (context, constraint) {
+                      return Container(
+                        width: (constraint.maxWidth/100)*percent,
+                        decoration: BoxDecoration(
+                            color: Color(dessert.iconColor),
+                            borderRadius: BorderRadius.circular(40)),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -431,5 +454,3 @@ class NutritionChart extends StatelessWidget {
     );
   }
 }
-
-

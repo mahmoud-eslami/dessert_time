@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 class ShopDetailsPage extends StatelessWidget {
   final Shop shop;
 
-  const ShopDetailsPage({Key key,@required this.shop}) : super(key: key);
+  const ShopDetailsPage({Key key, @required this.shop}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Colors.indigo[100],
+    );
   }
 }

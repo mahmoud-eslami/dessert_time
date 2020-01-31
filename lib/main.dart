@@ -7,7 +7,11 @@ import 'bloc/dessert_bloc/dessert_event.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  ThemeData mainTheme = ThemeData(primarySwatch: Colors.deepPurple,fontFamily: 'RobotoLight');
+  ThemeData mainTheme = ThemeData(
+    primarySwatch: Colors.deepPurple,
+    fontFamily: 'RobotoLight',
+  );
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

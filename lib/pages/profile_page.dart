@@ -5,7 +5,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Colors.indigo[50],
+        color: Colors.indigo[100],
         child: SafeArea(
           child: Column(
             children: <Widget>[

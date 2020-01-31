@@ -327,7 +327,7 @@ class DessertItem extends StatelessWidget {
               );
             },
             child: Padding(
-              padding: EdgeInsets.only(top: 15),
+              padding: EdgeInsets.only(top: 10),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -3,10 +3,10 @@ import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class DetailsPage extends StatelessWidget {
+class DessertDetailsPage extends StatelessWidget {
   final Dessert dessert;
 
-  const DetailsPage({Key key, @required this.dessert}) : super(key: key);
+  const DessertDetailsPage({Key key, @required this.dessert}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

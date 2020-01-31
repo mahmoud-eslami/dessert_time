@@ -2,6 +2,7 @@ import 'package:dessert_time/bloc/dessert_bloc/dessert_bloc.dart';
 import 'package:dessert_time/bloc/dessert_bloc/dessert_state.dart';
 import 'package:dessert_time/model/dessert.dart';
 import 'package:dessert_time/pages/dessertDetails.dart';
+import 'package:dessert_time/pages/shopDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -235,64 +236,76 @@ class ShopItem extends StatelessWidget {
             border: Border.all(color: AppColor.shopItemBorderColor)),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Material(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(17),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShopDetailsPage(
+                    shop: shop,
+                  ),
                 ),
-                clipBehavior: Clip.hardEdge,
-                child: Image.network(
-                  shop.image,
-                  height: 55,
-                  width: 55,
-                  fit: BoxFit.cover,
+              );
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Material(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(17),
+                  ),
+                  clipBehavior: Clip.hardEdge,
+                  child: Image.network(
+                    shop.image,
+                    height: 55,
+                    width: 55,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    shop.name,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(
-                        color: AppColor.shopItemTextColor,
-                        fontSize: 13,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'Best place for chillout',
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(
-                        color: AppColor.shopItemTextColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    shop.openTime,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: TextStyle(
-                        color: AppColor.shopItemTimeColor,
-                        fontSize: 8,
-                        fontWeight: FontWeight.w900),
-                  ),
-                ],
-              )
-            ],
+                SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      shop.name,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: AppColor.shopItemTextColor,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'Best place for chillout',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: AppColor.shopItemTextColor,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      shop.openTime,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: AppColor.shopItemTimeColor,
+                          fontSize: 8,
+                          fontWeight: FontWeight.w900),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -318,20 +331,20 @@ class DessertItem extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.all(20),
-          child: InkWell(
-            onTap: () {
-              var dessertItem = dessert;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsPage(
-                    dessert: dessertItem,
+          child: Padding(
+            padding: EdgeInsets.only(top: 10),
+            child: InkWell(
+              onTap: () {
+                var dessertItem = dessert;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DessertDetailsPage(
+                      dessert: dessertItem,
+                    ),
                   ),
-                ),
-              );
-            },
-            child: Padding(
-              padding: EdgeInsets.only(top: 10),
+                );
+              },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,

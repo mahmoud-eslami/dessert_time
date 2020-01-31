@@ -25,6 +25,7 @@ class ProfilePage extends StatelessWidget {
                   side: BorderSide(color: Colors.white, width: 3),
                 ),
                 clipBehavior: Clip.hardEdge,
+                elevation: 15,
                 child: Image.asset(
                   'assets/images/profile.jpg',
                   width: 100,
@@ -48,7 +49,7 @@ class ProfilePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(30))),
                 child: Center(
                     child: Text(
-                  '100 \$',
+                  '@mamouti',
                   style: TextStyle(
                       color: Colors.red[300],
                       fontSize: 10,

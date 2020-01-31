@@ -227,69 +227,73 @@ class ShopItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.symmetric(horizontal: 4),
       child: Container(
-        width: 180,
         decoration: BoxDecoration(
             color: AppColor.onlyWhite,
             borderRadius: BorderRadius.circular(17),
             border: Border.all(color: AppColor.shopItemBorderColor)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Material(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(14),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Material(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(17),
+                ),
+                clipBehavior: Clip.hardEdge,
+                child: Image.network(
+                  shop.image,
+                  height: 55,
+                  width: 55,
+                  fit: BoxFit.cover,
+                ),
               ),
-              clipBehavior: Clip.hardEdge,
-              child: Image.network(
-                shop.image,
-                height: 50,
+              SizedBox(
+                width: 20,
               ),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  shop.name,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(
-                      color: AppColor.shopItemTextColor,
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  'Best',
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(
-                      color: AppColor.shopItemTextColor,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w300),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  shop.openTime,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(
-                      color: AppColor.shopItemTimeColor,
-                      fontSize: 8,
-                      fontWeight: FontWeight.w900),
-                ),
-              ],
-            )
-          ],
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    shop.name,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: AppColor.shopItemTextColor,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Best place for chillout',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: AppColor.shopItemTextColor,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w300),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    shop.openTime,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: AppColor.shopItemTimeColor,
+                        fontSize: 8,
+                        fontWeight: FontWeight.w900),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

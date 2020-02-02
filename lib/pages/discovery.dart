@@ -105,7 +105,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                   shopList = state.shopList;
                 }
                 return SizedBox(
-                  height: 70,
+                  height: 75,
                   child: ListView.builder(
                     padding: EdgeInsets.only(left: 20),
                     scrollDirection: Axis.horizontal,

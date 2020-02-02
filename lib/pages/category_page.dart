@@ -1,3 +1,5 @@
+import 'dart:math';
+import 'dart:ui';
 import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -15,20 +17,23 @@ class CustomCategory extends StatelessWidget {
       child: SafeArea(
         child: Column(
           children: <Widget>[
-            Text(
-              'Categories',
-              style: TextStyle(
-                fontSize: 23,
-                fontWeight: FontWeight.bold,
+            Center(
+              child: Text(
+                'Categories',
+                style: TextStyle(
+                  fontSize: 23,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Expanded(
               child: ListView.builder(
-                  padding: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.only(top: 20),
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return _CategoryItem(
                       color: Colors.primaries[index],
+                      name: 'Dessert',
                     );
                   }),
             )
@@ -48,43 +53,50 @@ class _CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 18),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       child: CustomPaint(
-        foregroundPainter: CirclePainter(),
-        child: Container(
-          decoration: BoxDecoration(
-              color: color.withOpacity(.8),
-              borderRadius: BorderRadius.circular(10)),
-          width: 300,
-          height: 100,
-          child: Center(
-              child: Text(
-            'Dessert',
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
-          )),
-        ),
+        size: Size.fromHeight(110),
+        painter: RectanglePainter(name: name, color: color),
       ),
     );
   }
 }
 
-class CirclePainter extends CustomPainter {
-  Paint _paint;
+class RectanglePainter extends CustomPainter {
+  final String name;
+  final Color color;
 
-  CirclePainter() {
-    _paint = Paint()
-      ..color = Colors.white.withOpacity(.3)
-      ..strokeWidth = 15.0
-      ..style = PaintingStyle.stroke;
-  }
+  RectanglePainter({this.name, this.color});
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawCircle(Offset(size.width - 50, size.height), 30, _paint);
-    canvas.drawCircle(Offset(0, 0), 30, _paint);
-    canvas.drawCircle(Offset(0, size.height), 40, _paint);
-    canvas.drawCircle(Offset(size.width, size.height / 5), 15, _paint);
+    var circlePainter = Paint()
+      ..color = Colors.blue.withOpacity(.4)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 10;
+
+    var _paint = Paint()
+      ..color = color.withOpacity(.7)
+      ..strokeWidth = 60.0
+      ..style = PaintingStyle.fill;
+
+    final textStyle = TextStyle(
+        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 19);
+    final textSpan = TextSpan(text: '$name', style: textStyle);
+    final textPainter =
+        TextPainter(text: textSpan, textDirection: TextDirection.rtl);
+    textPainter.layout(minWidth: 0, maxWidth: size.width);
+
+    canvas.drawRRect(
+        RRect.fromRectAndRadius(
+            Rect.fromPoints(Offset(0, 0), Offset(size.width, size.height)),
+            Radius.circular(20)),
+        _paint);
+    canvas.drawCircle(Offset(0, 0), 20, circlePainter);
+    textPainter.paint(
+        canvas,
+        Offset((size.width / 2) - textPainter.size.width / 2,
+            (size.height / 2) - textPainter.size.height / 2));
   }
 
   @override
@@ -228,3 +240,21 @@ class CategoryItem extends StatelessWidget {
     );
   }
 }
+
+//
+//Container(
+//decoration: BoxDecoration(
+//color: color.withOpacity(.8),
+//borderRadius: BorderRadius.circular(10)),
+//width: 300,
+//height: 100,
+//child: Center(
+//child: Text(
+//'Dessert',
+//style: TextStyle(
+//color: Colors.white,
+//fontWeight: FontWeight.bold,
+//fontSize: 15),
+//),
+//),
+//),

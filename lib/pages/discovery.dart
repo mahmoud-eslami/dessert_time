@@ -230,6 +230,7 @@ class ShopItem extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 4),
       child: Container(
+        width: 200,
         decoration: BoxDecoration(
             color: AppColor.onlyWhite,
             borderRadius: BorderRadius.circular(17),
@@ -265,44 +266,46 @@ class ShopItem extends StatelessWidget {
                 SizedBox(
                   width: 20,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      shop.name,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: TextStyle(
-                          color: AppColor.shopItemTextColor,
-                          fontSize: 13,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'Best place for chillout',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: TextStyle(
-                          color: AppColor.shopItemTextColor,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w300),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      shop.openTime,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: TextStyle(
-                          color: AppColor.shopItemTimeColor,
-                          fontSize: 8,
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        shop.name,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: AppColor.shopItemTextColor,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        shop.desc,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: AppColor.shopItemTextColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.w300),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        shop.openTime,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: AppColor.shopItemTimeColor,
+                            fontSize: 8,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

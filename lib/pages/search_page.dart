@@ -13,7 +13,7 @@ class SearchPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
               ),
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: EdgeInsets.symmetric(vertical: 5),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
@@ -22,7 +22,8 @@ class SearchPage extends StatelessWidget {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Colors.white, style: BorderStyle.none),
+                        width: 10,
+                          color: Colors.red, style: BorderStyle.none),
                       borderRadius: BorderRadius.circular(30),
                     ),
                     prefixIcon: Icon(

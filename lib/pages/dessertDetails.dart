@@ -77,10 +77,32 @@ class DessertDetailsPage extends StatelessWidget {
               ],
             ),
           ),
+//          SliverPersistentHeader(delegate: Delegate(dessert: dessert),floating: true,pinned: true,),
         ],
         shrinkWrap: true,
       ),
     );
+  }
+}
+
+class Delegate extends SliverPersistentHeaderDelegate {
+  final Dessert dessert;
+
+  Delegate({this.dessert});
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return _flexibleSpaceBar(dessert);
+  }
+
+  @override
+  double get maxExtent => 60;
+
+  @override
+  double get minExtent => 30;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }
 

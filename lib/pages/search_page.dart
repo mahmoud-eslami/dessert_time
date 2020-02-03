@@ -10,21 +10,20 @@ class SearchPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                  color: AppColor.detailsBkColor,
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(30))),
-              padding: EdgeInsets.symmetric(vertical: 15),
-              child: Padding(
-                padding: EdgeInsets.only(left: 15, right: 15),
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(20)),
                 child: TextFormField(
                   minLines: 1,
                   showCursor: false,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    isDense: true,
+                    border: InputBorder.none,
                     suffixIcon: Icon(
                       CupertinoIcons.search,
                       size: 30,
@@ -78,7 +77,9 @@ class RecommendItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(20),border: Border.all(color: AppColor.shopItemBorderColor)),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: AppColor.shopItemBorderColor)),
         width: 240,
         child: Padding(
           padding: EdgeInsets.only(left: 5),

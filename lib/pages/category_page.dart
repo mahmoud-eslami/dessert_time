@@ -93,6 +93,8 @@ class RectanglePainter extends CustomPainter {
             Radius.circular(20)),
         _paint);
     canvas.drawCircle(Offset(0, 0), 20, circlePainter);
+    canvas.drawCircle(Offset(size.width, 0), 20, circlePainter);
+    canvas.drawCircle(Offset(0, size.height), 40, circlePainter);
     textPainter.paint(
         canvas,
         Offset((size.width / 2) - textPainter.size.width / 2,

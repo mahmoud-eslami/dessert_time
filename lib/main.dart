@@ -8,7 +8,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   ThemeData mainTheme = ThemeData(
-    primarySwatch: Colors.deepPurple,
+    primarySwatch: Colors.indigo,
     fontFamily: 'RobotoLight',
   );
 

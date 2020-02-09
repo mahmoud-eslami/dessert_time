@@ -32,7 +32,7 @@ class CustomCategory extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return _CategoryItem(
                       color: Colors.primaries[index],
-                      name: 'Dessert',
+                      name: 'Dessert #$index',
                     );
                   }),
             )

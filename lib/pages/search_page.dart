@@ -21,7 +21,7 @@ class SearchPage extends StatelessWidget {
                   minLines: 1,
                   showCursor: false,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 13),
                     isDense: true,
                     border: InputBorder.none,
                     suffixIcon: Icon(

@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:ui';
 import 'package:dessert_time/resource/colors.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +70,7 @@ class RectanglePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var circlePainter = Paint()
-      ..color = Colors.blue.withOpacity(.4)
+      ..color = Colors.white.withOpacity(.5)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 10;
 
@@ -93,8 +92,9 @@ class RectanglePainter extends CustomPainter {
             Radius.circular(20)),
         _paint);
     canvas.drawCircle(Offset(0, 0), 20, circlePainter);
-    canvas.drawCircle(Offset(size.width, 0), 20, circlePainter);
-    canvas.drawCircle(Offset(0, size.height), 40, circlePainter);
+    canvas.drawCircle(Offset(size.width, 0), 30, circlePainter);
+    canvas.drawCircle(Offset(size.width - 100, size.height + 20), 50, circlePainter);
+    canvas.drawCircle(Offset(0, size.height), 50, circlePainter);
     textPainter.paint(
         canvas,
         Offset((size.width / 2) - textPainter.size.width / 2,
@@ -243,20 +243,3 @@ class CategoryItem extends StatelessWidget {
   }
 }
 
-//
-//Container(
-//decoration: BoxDecoration(
-//color: color.withOpacity(.8),
-//borderRadius: BorderRadius.circular(10)),
-//width: 300,
-//height: 100,
-//child: Center(
-//child: Text(
-//'Dessert',
-//style: TextStyle(
-//color: Colors.white,
-//fontWeight: FontWeight.bold,
-//fontSize: 15),
-//),
-//),
-//),

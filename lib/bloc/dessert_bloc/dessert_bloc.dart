@@ -15,6 +15,7 @@ class DessertBloc extends Bloc<DessertEvent, DessertState> {
     DessertEvent event,
   ) async* {
     if (event is AppStart) {
+
       try {
         yield InitialDessertState();
         await Future.delayed(Duration(seconds: 3));

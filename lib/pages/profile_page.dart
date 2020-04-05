@@ -27,7 +27,7 @@ class ProfilePage extends StatelessWidget {
                 clipBehavior: Clip.hardEdge,
                 elevation: 15,
                 child: Image.asset(
-                  'assets/images/profile.jpg',
+                  'assets/images/user.png',
                   width: 100,
                   height: 100,
                   fit: BoxFit.cover,

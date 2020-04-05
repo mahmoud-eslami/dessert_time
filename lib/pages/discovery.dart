@@ -79,7 +79,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
               },
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             Padding(
               padding: EdgeInsets.only(left: 25),
@@ -97,7 +97,7 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 40,
             ),
             BlocBuilder<DessertBloc, DessertState>(
               builder: (context, state) {
